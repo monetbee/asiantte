@@ -1,50 +1,322 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+const title = "Asiantte — Asian Beauty, Unapologetically.";
+const description =
+  "Asiantte celebrates every expression of Asian beauty.";
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="site-header">
+      <a href="/" class="wordmark">Asiantte</a>
+      <a href="#founding-access" class="header-link">Founding Access</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">ASIANTTE</p>
+        <h1>Asian Beauty,<br />Unapologetically.</h1>
+        <p class="japanese">自分の美しさを、自分で選ぶ。</p>
+        <a href="#founding-access" class="button">Join Founding Access</a>
+      </section>
+
+      <section class="belief">
+        <p class="eyebrow">OUR BELIEF</p>
+        <h2>「私には似合わない」をなくす。</h2>
+        <p>
+          Asiantteは、すべてのアジアの美しさを讃える、
+          手の届くExpressive Luxuryジュエリーブランドです。
+        </p>
+      </section>
+
+      <section class="collection">
+        <p class="eyebrow">THE FIRST COLLECTION</p>
+        <h2>Coming Soon</h2>
+
+        <div class="collection-grid">
+          <article>
+            <span>01</span>
+            <h3>The Drop</h3>
+            <p>A mark of presence.</p>
+          </article>
+
+          <article>
+            <span>02</span>
+            <h3>The Wave</h3>
+            <p>Move with your own rhythm.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="founding-access" class="founding-access">
+        <p class="eyebrow">FOUNDING ACCESS</p>
+        <h2>Be there from the beginning.</h2>
+        <p>
+          First Collectionの先行情報と予約開始のお知らせを受け取る。
+        </p>
+
+        <form>
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email address"
+            required
+          />
+          <button type="submit">Join</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <span>Asiantte</span>
+      <span>Asian Beauty, Unapologetically.</span>
+    </footer>
+  </body>
 </html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
+  :global(body) {
+    margin: 0;
+    background: #111111;
+    color: #f4efe8;
+    font-family: "Manrope", "Noto Sans JP", sans-serif;
+  }
+
+  :global(a) {
+    color: inherit;
+  }
+
+  .site-header {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5vw;
+  }
+
+  .wordmark {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .header-link {
+    color: #d8d4ce;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .hero,
+  .belief,
+  .collection,
+  .founding-access {
+    min-height: 85vh;
+    padding: 9rem 10vw;
+    display: grid;
+    align-content: center;
+  }
+
+  .hero {
+    min-height: 100vh;
+    background:
+      radial-gradient(
+        circle at 75% 35%,
+        rgba(176, 141, 87, 0.16),
+        transparent 24rem
+      ),
+      #111111;
+  }
+
+  .eyebrow {
+    margin: 0 0 1.5rem;
+    color: #b08d57;
+    font-size: 0.7rem;
+    letter-spacing: 0.24em;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+  }
+
+  h1 {
+    max-width: 950px;
+    margin: 0;
+    font-size: clamp(4rem, 10vw, 9rem);
+    line-height: 0.88;
+    letter-spacing: -0.045em;
+  }
+
+  h2 {
+    max-width: 850px;
+    margin: 0 0 2rem;
+    font-size: clamp(2.8rem, 6vw, 6rem);
+    line-height: 0.95;
+  }
+
+  h3 {
+    margin: 1rem 0 0.5rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  p {
+    max-width: 620px;
+    color: #d8d4ce;
+    line-height: 1.8;
+  }
+
+  .japanese {
+    margin-top: 2rem;
+    font-size: 1.1rem;
+  }
+
+  .button,
+  button {
+    width: fit-content;
+    margin-top: 2rem;
+    padding: 1rem 1.4rem;
+    border: 1px solid #b08d57;
+    background: transparent;
+    color: #f4efe8;
+    font: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background 180ms ease,
+      color 180ms ease;
+  }
+
+  .button:hover,
+  button:hover {
+    background: #b08d57;
+    color: #111111;
+  }
+
+  .belief {
+    background: #f4efe8;
+    color: #111111;
+  }
+
+  .belief p {
+    color: #4f4a45;
+  }
+
+  .belief .eyebrow {
+    color: #6e1f2a;
+  }
+
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+  }
+
+  .collection-grid article {
+    min-height: 17rem;
+    padding: 2rem;
+    border: 1px solid rgba(176, 141, 87, 0.55);
+  }
+
+  .collection-grid span {
+    color: #b08d57;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+  }
+
+  .founding-access {
+    min-height: 75vh;
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    max-width: 600px;
+  }
+
+  input {
+    min-width: min(100%, 20rem);
+    padding: 1rem;
+    border: 1px solid #d8d4ce;
+    background: transparent;
+    color: #f4efe8;
+    font: inherit;
+  }
+
+  input::placeholder {
+    color: #d8d4ce;
+  }
+
+  form button {
+    margin-top: 0;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 5vw;
+    border-top: 1px solid rgba(216, 212, 206, 0.2);
+    color: #d8d4ce;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 700px) {
+    .site-header {
+      padding: 1.5rem 6vw;
+    }
+
+    .header-link {
+      font-size: 0.6rem;
+    }
+
+    .hero,
+    .belief,
+    .collection,
+    .founding-access {
+      padding: 7rem 7vw;
+    }
+
+    .collection-grid {
+      grid-template-columns: 1fr;
+    }
+
+    footer {
+      flex-direction: column;
+    }
+  }
+</style>
