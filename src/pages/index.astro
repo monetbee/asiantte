@@ -5,6 +5,7 @@ const description =
 ---
 
 <!doctype html>
+
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
@@ -27,19 +28,37 @@ const description =
     </header>
 
     <main>
-      <section class="hero">
-        <p class="eyebrow">ASIANTTE</p>
-        <h1>Asian Beauty,<br />Unapologetically.</h1>
-        <p class="japanese">自分の美しさを、自分で選ぶ。</p>
-        <a href="#founding-access" class="button">Join Founding Access</a>
-      </section>
+
+	<section class="hero">
+		<video
+			class="hero-video"
+			autoplay
+			muted
+			loop
+			playsinline
+			preload="metadata"
+			aria-hidden="true"
+		>
+			<source src="/videos/hero-videos/7166885-hd_1920_1080_25fps.mp4" type="video/mp4" />
+
+		</video>
+
+		<div class="hero-overlay"></div>
+
+		<div class="hero-content">
+			<p class="eyebrow">ASIANTTE</p>
+			<h1>Asian Beauty,<br />Unapologetically.</h1>
+			<p class="japanese">自分の美しさを、自分で選ぶ。</p>
+			<a href="#founding-access" class="button">Join Founding Access</a>
+		</div>
+	</section>
 
       <section class="belief">
         <p class="eyebrow">OUR BELIEF</p>
-        <h2>「私には似合わない」をなくす。</h2>
+        <h2>自分の美しさを、</h2>
+		<h2>自分で選ぶ。</h2>
         <p>
-          Asiantteは、すべてのアジアの美しさを讃える、
-          手の届くExpressive Luxuryジュエリーブランドです。
+          Asiantteは、すべてのアジアの美しさを讃える、手の届くラグジュアリージュエリーブランドです。
         </p>
       </section>
 
@@ -48,16 +67,30 @@ const description =
         <h2>Coming Soon</h2>
 
         <div class="collection-grid">
-          <article>
-            <span>01</span>
-            <h3>The Drop</h3>
-            <p>A mark of presence.</p>
+          <article class="product-card product-drop">
+            <img
+              src="/images/products/drop.jpg"
+              alt="Asiantte The Drop earrings"
+              loading="lazy"
+            />
+            <div class="product-card-content">
+              <span>01</span>
+              <h3>The Drop</h3>
+              <p>A mark of presence.</p>
+            </div>
           </article>
 
-          <article>
-            <span>02</span>
-            <h3>The Wave</h3>
-            <p>Move with your own rhythm.</p>
+          <article class="product-card product-wave">
+            <img
+              src="/images/products/wave.webp"
+              alt="Asiantte The Wave earrings"
+              loading="lazy"
+            />
+            <div class="product-card-content">
+              <span>02</span>
+              <h3>The Wave</h3>
+              <p>Move with your own rhythm.</p>
+            </div>
           </article>
         </div>
       </section>
@@ -87,6 +120,8 @@ const description =
     </footer>
   </body>
 </html>
+
+
 
 <style>
   :global(*) {
@@ -147,14 +182,48 @@ const description =
   }
 
   .hero {
+    position: relative;
+    isolation: isolate;
     min-height: 100vh;
+    overflow: hidden;
+    background: #111111;
+  }
+
+  .hero-video,
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hero-video {
+    z-index: -3;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.7) contrast(1.05);
+  }
+
+  .hero-overlay {
+    z-index: -2;
     background:
-      radial-gradient(
-        circle at 75% 35%,
-        rgba(176, 141, 87, 0.16),
-        transparent 24rem
+      linear-gradient(
+        90deg,
+        rgba(17, 17, 17, 0.82) 0%,
+        rgba(17, 17, 17, 0.48) 55%,
+        rgba(17, 17, 17, 0.7) 100%
       ),
-      #111111;
+      linear-gradient(
+        0deg,
+        rgba(17, 17, 17, 0.58),
+        transparent 55%,
+        rgba(17, 17, 17, 0.32)
+      );
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
   }
 
   .eyebrow {
@@ -245,9 +314,45 @@ const description =
   }
 
   .collection-grid article {
-    min-height: 17rem;
-    padding: 2rem;
+    position: relative;
+    min-height: 25rem;
+    overflow: hidden;
     border: 1px solid rgba(176, 141, 87, 0.55);
+    isolation: isolate;
+  }
+
+  .product-card img {
+    position: absolute;
+    z-index: -2;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: saturate(0.8) contrast(1.05);
+    transition: transform 500ms ease;
+  }
+
+  .product-card::after {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(17, 17, 17, 0.12) 15%, rgba(17, 17, 17, 0.82) 100%);
+    content: "";
+  }
+
+  .product-card:hover img {
+    transform: scale(1.04);
+  }
+
+  .product-card-content {
+    position: absolute;
+    inset: auto 2rem 2rem;
+  }
+
+  .product-card p,
+  .product-card h3 {
+    color: #f4efe8;
   }
 
   .collection-grid span {
@@ -295,6 +400,16 @@ const description =
     letter-spacing: 0.08em;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none;
+    }
+
+    .hero {
+      background: #111111;
+    }
+  }
+
   @media (max-width: 700px) {
     .site-header {
       padding: 1.5rem 6vw;
@@ -313,6 +428,10 @@ const description =
 
     .collection-grid {
       grid-template-columns: 1fr;
+    }
+
+    .collection-grid article {
+      min-height: 22rem;
     }
 
     footer {
