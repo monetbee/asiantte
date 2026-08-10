@@ -25,20 +25,20 @@ const description =
     <header class="site-header">
       <a href="/" class="wordmark">Asiantte</a>
       <div class="menu-area">
-        <span class="menu-trigger">Menu</span>
         <nav class="menu-panel" aria-label="サイトメニュー">
-          <a href="/about">About</a>
-          <a href="#collection">Collection</a>
-          <a href="#founding-access">Founding Access</a>
-          <a href="#contact">Contact</a>
-          <a href="#collection">ギフト</a>
-          <a href="#collection">リング</a>
-          <a href="#collection">ピアス</a>
-          <a href="#collection">ブレスレット</a>
-          <a href="#collection">ネックレス</a>
-          <a href="#collection">カテゴリー</a>
-          <a href="#collection">新作</a>
+          <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさについて">About</a>
+          <a href="#collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
+          <a href="#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
+          <a href="#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
+          <a href="#collection" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
+          <a href="#collection" data-detail="静かな存在感を添えるリング">リング</a>
+          <a href="#collection" data-detail="The Drop — A mark of presence.">ピアス</a>
+          <a href="#collection" data-detail="自分のリズムで揺れるブレスレット">ブレスレット</a>
+          <a href="#collection" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
+          <a href="#collection" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
+          <a href="#collection" data-detail="最新のコレクションと新着アイテム">新作</a>
         </nav>
+        <div class="menu-detail" aria-live="polite">カーソルを合わせてください</div>
       </div>
     </header>
 
@@ -138,7 +138,20 @@ const description =
   </body>
 </html>
 
+<script>
+  const menuDetail = document.querySelector('.menu-detail');
+  const menuLinks = document.querySelectorAll('.menu-panel a');
 
+  menuLinks.forEach((link) => {
+    link.addEventListener('mouseenter', () => {
+      menuDetail.textContent = link.dataset.detail || '';
+    });
+
+    link.addEventListener('focus', () => {
+      menuDetail.textContent = link.dataset.detail || '';
+    });
+  });
+</script>
 
 <style>
   :global(*) {
@@ -182,50 +195,70 @@ const description =
 
   .menu-area {
     position: relative;
-  }
-
-  .menu-trigger {
-    color: #d8d4ce;
-    font-size: 0.7rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
+    width: min(44rem, 72vw);
   }
 
   .menu-panel {
-    position: absolute;
-    top: calc(100% + 1.5rem);
-    right: 0;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(8rem, 1fr));
-    gap: 0.85rem 2rem;
-    width: min(28rem, 80vw);
-    padding: 1.6rem 1.8rem;
-    border: 1px solid rgba(216, 212, 206, 0.3);
-    background: rgba(17, 17, 17, 0.96);
-    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-0.75rem);
-    transition: opacity 220ms ease, transform 220ms ease;
-  }
-
-  .menu-area:hover .menu-panel,
-  .menu-area:focus-within .menu-panel {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 1.5rem;
   }
 
   .menu-panel a {
+    position: relative;
     color: #f4efe8;
     font-family: "Cormorant Garamond", serif;
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     text-decoration: none;
     transition: color 180ms ease;
   }
 
-  .menu-panel a:hover {
+  .menu-panel a::after {
+    position: absolute;
+    right: 0;
+    bottom: -0.25rem;
+    left: 0;
+    height: 1px;
+    background: #b08d57;
+    content: "";
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 180ms ease;
+  }
+
+  .menu-panel a:hover,
+  .menu-panel a:focus-visible {
     color: #b08d57;
+  }
+
+  .menu-panel a:hover::after,
+  .menu-panel a:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  .menu-detail {
+    min-height: 1.5rem;
+    margin-top: 0.85rem;
+    color: rgba(216, 212, 206, 0.72);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    line-height: 1.5;
+    text-align: right;
+    opacity: 0;
+    transition: opacity 180ms ease;
+  }
+
+  .menu-panel a:hover + .menu-detail {
+    opacity: 1;
+  }
+
+  .menu-area:has(.menu-panel a:hover) .menu-detail {
+    opacity: 1;
+  }
+
+  .menu-detail::before {
+    content: "";
   }
 
   .hero,
@@ -472,10 +505,20 @@ const description =
       padding: 1.5rem 6vw;
     }
 
+    .menu-area {
+      width: 70vw;
+    }
+
     .menu-panel {
-      grid-template-columns: 1fr;
-      width: min(16rem, 72vw);
-      gap: 0.6rem;
+      gap: 0.25rem 1rem;
+    }
+
+    .menu-panel a {
+      font-size: 1rem;
+    }
+
+    .menu-detail {
+      text-align: right;
     }
 
     .hero,
