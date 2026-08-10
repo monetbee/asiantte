@@ -195,14 +195,17 @@ const description =
 
   .menu-area {
     position: relative;
-    width: min(44rem, 72vw);
+    width: min(68rem, 78vw);
+    margin-top: 2.7rem;
   }
 
   .menu-panel {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: flex-end;
-    gap: 0.35rem 1.5rem;
+    align-items: center;
+    gap: clamp(0.55rem, 1.15vw, 1.4rem);
+    white-space: nowrap;
   }
 
   .menu-panel a {
@@ -507,10 +510,19 @@ const description =
 
     .menu-area {
       width: 70vw;
+      margin-top: 2.2rem;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .menu-area::-webkit-scrollbar {
+      display: none;
     }
 
     .menu-panel {
-      gap: 0.25rem 1rem;
+      justify-content: flex-start;
+      gap: 0.9rem;
+      width: max-content;
     }
 
     .menu-panel a {
