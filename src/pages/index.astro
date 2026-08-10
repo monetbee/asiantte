@@ -24,7 +24,22 @@ const description =
   <body>
     <header class="site-header">
       <a href="/" class="wordmark">Asiantte</a>
-      <a href="#founding-access" class="header-link">Founding Access</a>
+      <div class="menu-area">
+        <span class="menu-trigger">Menu</span>
+        <nav class="menu-panel" aria-label="サイトメニュー">
+          <a href="/about">About</a>
+          <a href="#collection">Collection</a>
+          <a href="#founding-access">Founding Access</a>
+          <a href="#contact">Contact</a>
+          <a href="#collection">ギフト</a>
+          <a href="#collection">リング</a>
+          <a href="#collection">ピアス</a>
+          <a href="#collection">ブレスレット</a>
+          <a href="#collection">ネックレス</a>
+          <a href="#collection">カテゴリー</a>
+          <a href="#collection">新作</a>
+        </nav>
+      </div>
     </header>
 
     <main>
@@ -64,7 +79,7 @@ const description =
         </p>
       </section>
 
-      <section class="collection">
+      <section id="collection" class="collection">
         <p class="eyebrow">THE FIRST COLLECTION</p>
         <h2>Coming Soon</h2>
 
@@ -116,7 +131,7 @@ const description =
       </section>
     </main>
 
-    <footer>
+    <footer id="contact">
       <span>Asiantte</span>
       <span>Asian Beauty, Unapologetically.</span>
     </footer>
@@ -165,12 +180,52 @@ const description =
     text-decoration: none;
   }
 
-  .header-link {
+  .menu-area {
+    position: relative;
+  }
+
+  .menu-trigger {
     color: #d8d4ce;
     font-size: 0.7rem;
     letter-spacing: 0.16em;
-    text-decoration: none;
     text-transform: uppercase;
+  }
+
+  .menu-panel {
+    position: absolute;
+    top: calc(100% + 1.5rem);
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(8rem, 1fr));
+    gap: 0.85rem 2rem;
+    width: min(28rem, 80vw);
+    padding: 1.6rem 1.8rem;
+    border: 1px solid rgba(216, 212, 206, 0.3);
+    background: rgba(17, 17, 17, 0.96);
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.75rem);
+    transition: opacity 220ms ease, transform 220ms ease;
+  }
+
+  .menu-area:hover .menu-panel,
+  .menu-area:focus-within .menu-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .menu-panel a {
+    color: #f4efe8;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.25rem;
+    text-decoration: none;
+    transition: color 180ms ease;
+  }
+
+  .menu-panel a:hover {
+    color: #b08d57;
   }
 
   .hero,
@@ -417,8 +472,10 @@ const description =
       padding: 1.5rem 6vw;
     }
 
-    .header-link {
-      font-size: 0.6rem;
+    .menu-panel {
+      grid-template-columns: 1fr;
+      width: min(16rem, 72vw);
+      gap: 0.6rem;
     }
 
     .hero,
