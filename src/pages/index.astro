@@ -25,6 +25,9 @@ const description =
     <header class="site-header">
       <a href="/" class="wordmark">Asiantte</a>
       <div class="menu-area">
+        <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
         <nav class="menu-panel" aria-label="サイトメニュー">
           <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさについて">About</a>
           <a href="#collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
@@ -151,6 +154,13 @@ const description =
       menuDetail.textContent = link.dataset.detail || '';
     });
   });
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menuArea = document.querySelector('.menu-area');
+
+  menuToggle?.addEventListener('click', () => {
+    const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
+    menuToggle.setAttribute('aria-expanded', String(isOpen));
+  });
 </script>
 
 <style>
@@ -197,6 +207,10 @@ const description =
     position: relative;
     width: min(68rem, 78vw);
     margin-top: 2.7rem;
+  }
+
+  .menu-toggle {
+    display: none;
   }
 
   .menu-panel {
@@ -264,6 +278,75 @@ const description =
 
   .menu-detail::before {
     content: "";
+  }
+
+  @media (max-width: 900px) {
+    .site-header {
+      align-items: center;
+    }
+
+    .menu-area {
+      width: auto;
+      margin-top: 0;
+    }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 4px;
+      width: 2rem;
+      height: 2rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #f4efe8;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transition: transform 180ms ease, opacity 180ms ease;
+    }
+
+    .menu-panel {
+      position: absolute;
+      top: 2.6rem;
+      right: 0;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(8rem, 1fr));
+      justify-content: initial;
+      gap: 0.8rem 1.5rem;
+      width: min(22rem, calc(100vw - 3rem));
+      padding: 1.4rem;
+      border: 1px solid rgba(216, 212, 206, 0.3);
+      background: rgba(17, 17, 17, 0.97);
+      box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-0.5rem);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .menu-detail {
+      position: absolute;
+      top: calc(100% + 15rem);
+      right: 0;
+      width: min(22rem, calc(100vw - 3rem));
+      margin: 0;
+      text-align: right;
+    }
+
+    .menu-area:hover .menu-panel,
+    .menu-area:focus-within .menu-panel,
+    .menu-area.menu-open .menu-panel {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
   }
 
   .hero,
@@ -510,29 +593,18 @@ const description =
       padding: 1.5rem 6vw;
     }
 
-    .menu-area {
-      width: 70vw;
-      margin-top: 2.2rem;
-      overflow-x: auto;
-      scrollbar-width: none;
-    }
-
-    .menu-area::-webkit-scrollbar {
-      display: none;
-    }
-
     .menu-panel {
-      justify-content: flex-start;
-      gap: 0.9rem;
-      width: max-content;
+      grid-template-columns: 1fr;
+      width: min(15rem, calc(100vw - 2rem));
+    }
+
+    .menu-detail {
+      top: calc(100% + 23rem);
+      width: min(15rem, calc(100vw - 2rem));
     }
 
     .menu-panel a {
       font-size: 0.65rem;
-    }
-
-    .menu-detail {
-      text-align: right;
     }
 
     .hero,
