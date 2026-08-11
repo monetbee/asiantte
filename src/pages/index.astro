@@ -33,6 +33,7 @@ const description =
           <a href="#collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
           <a href="#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
           <a href="#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
+          <p class="menu-group-label">ファッションジュエリー</p>
           <a href="#collection" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
           <a href="#collection" data-detail="静かな存在感を添えるリング">リング</a>
           <a href="#collection" data-detail="The Drop — A mark of presence.">ピアス</a>
@@ -40,6 +41,14 @@ const description =
           <a href="#collection" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
           <a href="#collection" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
           <a href="#collection" data-detail="最新のコレクションと新着アイテム">新作</a>
+          <p class="menu-group-label">ファインジュエリー</p>
+          <a href="#collection" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
+          <p class="menu-group-label language-label">Language</p>
+          <button class="language-option is-active" type="button" data-language="ja">日本語</button>
+          <button class="language-option" type="button" data-language="en">English</button>
+          <button class="language-option" type="button" data-language="zh">中文</button>
+          <button class="language-option" type="button" data-language="es">Español</button>
+          <button class="language-option" type="button" data-language="fr">Français</button>
         </nav>
         <div class="menu-detail" aria-live="polite">カーソルを合わせてください</div>
       </div>
@@ -156,6 +165,14 @@ const description =
   });
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
+  const languageOptions = document.querySelectorAll('.language-option');
+
+  languageOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      languageOptions.forEach((item) => item.classList.remove('is-active'));
+      option.classList.add('is-active');
+    });
+  });
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
@@ -175,7 +192,7 @@ const description =
   :global(body) {
     margin: 0;
     background: #111111;
-    color: #f4efe8;
+    color: #ffffff;
     font-family: "Manrope", "Noto Sans JP", sans-serif;
   }
 
@@ -222,9 +239,23 @@ const description =
     white-space: nowrap;
   }
 
+  .menu-group-label {
+    flex-basis: 100%;
+    margin: 0.65rem 0 0.1rem;
+    color: #b08d57;
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .language-label {
+    margin-top: 1rem;
+  }
+
   .menu-panel a {
     position: relative;
-    color: #f4efe8;
+    color: #ffffff;
     font-family: "Manrope", "Noto Sans JP", sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
@@ -254,6 +285,23 @@ const description =
   .menu-panel a:hover::after,
   .menu-panel a:focus-visible::after {
     transform: scaleX(1);
+  }
+
+  .language-option {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    color: #ffffff;
+    font: inherit;
+    font-size: 0.65rem;
+    cursor: pointer;
+    opacity: 0.65;
+  }
+
+  .language-option:hover,
+  .language-option.is-active {
+    color: #b08d57;
+    opacity: 1;
   }
 
   .menu-detail {
@@ -293,14 +341,14 @@ const description =
     .menu-toggle {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: flex-start;
       gap: 4px;
       width: 2rem;
-      height: 2rem;
+      height: 1.4rem;
       padding: 0;
       border: 0;
       background: transparent;
-      color: #f4efe8;
+      color: #ffffff;
       cursor: pointer;
     }
 
@@ -456,7 +504,7 @@ const description =
     padding: 1rem 1.4rem;
     border: 1px solid #b08d57;
     background: transparent;
-    color: #f4efe8;
+    color: #ffffff;
     font: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -472,7 +520,7 @@ const description =
   }
 
   .belief {
-    background: #f4efe8;
+    background: #ffffff;
     color: #111111;
   }
 
@@ -530,7 +578,7 @@ const description =
 
   .product-card p,
   .product-card h3 {
-    color: #f4efe8;
+    color: #ffffff;
   }
 
   .collection-grid span {
@@ -555,7 +603,7 @@ const description =
     padding: 1rem;
     border: 1px solid #d8d4ce;
     background: transparent;
-    color: #f4efe8;
+    color: #ffffff;
     font: inherit;
   }
 
