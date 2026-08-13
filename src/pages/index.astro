@@ -31,8 +31,8 @@ const description =
         <nav class="menu-panel" aria-label="サイトメニュー">
           <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさについて">About</a>
           <a href="/collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
-          <a href="/#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
-          <a href="/#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
+          <a href="/founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
+          <a href="/contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
           <a href="/categories/gift" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
           <a href="/categories/rings" data-detail="静かな存在感を添えるリング">リング</a>
           <a href="/categories/earrings" data-detail="The Drop — A mark of presence.">ピアス</a>
@@ -42,7 +42,7 @@ const description =
           <a href="/new-arrivals" data-detail="最新のコレクションと新着アイテム">新作</a>
           <a href="/fine-jewelry" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
           <div class="language-menu">
-            <button class="language-trigger" type="button" aria-label="言語を選択" aria-expanded="false"><span aria-hidden="true">◎</span></button>
+            <button class="language-trigger" type="button" aria-label="言語を選択" aria-expanded="false"><span class="globe-icon" aria-hidden="true"></span></button>
             <div class="language-options">
               <button class="language-option is-active" type="button" data-language="ja">日本語</button>
               <button class="language-option" type="button" data-language="en">English</button>
@@ -248,20 +248,29 @@ const description =
     white-space: nowrap;
     margin-left: auto;
     line-height: 1.3rem;
+    align-items: center;
+    transform: translateY(-0.9rem);
   }
 
   .language-menu {
     position: relative;
+    display: flex;
+    align-items: center;
+    align-self: center;
     flex: 0 0 auto;
+    height: 1.3rem;
+    transform: translateY(-0.9rem);
   }
 
   .language-trigger {
+    position: relative;
+    top: 0;
     display: grid;
     place-items: center;
     width: 1.3rem;
     height: 1.3rem;
-    border: 1px solid currentColor;
-    border-radius: 50%;
+    border: 0;
+    border-radius: 0;
     padding: 0;
     background: transparent;
     color: #ffffff;
@@ -269,24 +278,38 @@ const description =
     cursor: pointer;
   }
 
-  .language-trigger::before,
-  .language-trigger::after {
+  .globe-icon {
+    position: relative;
+    display: block;
+    width: 0.95rem;
+    height: 0.95rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+  }
+
+  .globe-icon::before,
+  .globe-icon::after {
     position: absolute;
-    width: 0.8rem;
-    height: 0.35rem;
+    top: 50%;
+    left: 50%;
+    content: "";
+    transform: translate(-50%, -50%);
+  }
+
+  .globe-icon::before {
+    width: 0.68rem;
+    height: 0.32rem;
     border-top: 1px solid currentColor;
     border-bottom: 1px solid currentColor;
     border-radius: 50%;
-    content: "";
-    pointer-events: none;
   }
 
-  .language-trigger::after {
-    width: 0.35rem;
-    height: 0.8rem;
-    border: 0;
+  .globe-icon::after {
+    width: 0.32rem;
+    height: 0.72rem;
     border-right: 1px solid currentColor;
     border-left: 1px solid currentColor;
+    border-radius: 50%;
   }
 
   .language-options {
