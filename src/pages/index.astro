@@ -100,7 +100,7 @@ const description =
         <div class="collection-grid">
           <article class="product-card product-drop">
             <img
-              src="/images/products/ "
+              src="/images/products/drop.jpg"
               alt="Asiantte The Drop earrings"
               loading="lazy"
             />
@@ -113,7 +113,7 @@ const description =
 
           <article class="product-card product-wave">
             <img
-              src="/images/products/ "
+              src="/images/products/wave.webp"
               alt="Asiantte The Wave earrings"
               loading="lazy"
             />
@@ -608,11 +608,12 @@ const description =
     overflow: hidden;
     border: 1px solid rgba(176, 141, 87, 0.55);
     isolation: isolate;
+    background: #24201d;
   }
 
   .product-card img {
     position: absolute;
-    z-index: -2;
+    z-index: 0;
     inset: 0;
     width: 100%;
     height: 100%;
@@ -624,7 +625,7 @@ const description =
 
   .product-card::after {
     position: absolute;
-    z-index: -1;
+    z-index: 1;
     inset: 0;
     background: linear-gradient(180deg, rgba(17, 17, 17, 0.12) 15%, rgba(17, 17, 17, 0.82) 100%);
     content: "";
@@ -636,6 +637,7 @@ const description =
 
   .product-card-content {
     position: absolute;
+    z-index: 2;
     inset: auto 2rem 2rem;
   }
 
