@@ -5,34 +5,19 @@
     <nav class="menu-panel" aria-label="サイトメニュー">
       <a href="/about">About</a><a href="/collection">Collection</a><a href="/founding-access">Founding Access</a><a href="/contact">Contact</a>
       <a href="/categories/gift">ギフト</a><a href="/categories/rings">リング</a><a href="/categories/earrings">ピアス</a><a href="/categories/bracelets">ブレスレット</a><a href="/categories/necklaces">ネックレス</a><a href="/categories">カテゴリー</a><a href="/new-arrivals">新作</a><a href="/fine-jewelry">ファインジュエリー</a>
-      <div class="language-menu"><button class="language-trigger" type="button" aria-label="言語を選択">◎</button><div class="language-options"><button type="button">日本語</button><button type="button">English</button><button type="button">中文</button><button type="button">Español</button><button type="button">Français</button></div></div>
     </nav>
   </div>
 </header>
 <script>
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
-  const languageTrigger = document.querySelector('.language-trigger');
-  const languageMenu = document.querySelector('.language-menu');
-
   menuToggle?.addEventListener('click', () => {
-    const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  languageTrigger?.addEventListener('click', () => {
-    languageMenu?.classList.toggle('language-open');
+    const open = menuArea?.classList.toggle('menu-open') ?? false;
+    menuToggle.setAttribute('aria-expanded', String(open));
   });
 </script>
 <style>
-  .site-header{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:flex-start;gap:4rem;padding:0 6vw}.wordmark{padding-top:0;transform:translateY(-1rem)}.wordmark{flex:0 0 auto;min-width:11rem}.menu-area{margin-left:auto;min-width:0}.wordmark{color:inherit;font:600 2rem "Cormorant Garamond",serif;letter-spacing:.08em;text-decoration:none}.menu-area{margin-left:auto}.menu-panel{display:flex;align-items:center;justify-content:flex-end;gap:clamp(.4rem,1vw,1.1rem);white-space:nowrap}.menu-panel a{color:inherit;font:500 .7rem Manrope,"Noto Sans JP",sans-serif;letter-spacing:.06em;text-decoration:none}.menu-toggle{display:flex;flex-direction:column;gap:4px;width:2rem;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}.language-menu{position:relative}.language-trigger{border:0;background:transparent;color:inherit;font-size:1rem;cursor:pointer}.language-options{position:absolute;right:0;top:2rem;display:flex;gap:.7rem;padding:.8rem;background:#111;color:#fff;opacity:0;pointer-events:none}.language-menu.language-open .language-options{opacity:1;pointer-events:auto}.language-options button{border:0;background:transparent;color:inherit;cursor:pointer;font:inherit;font-size:.7rem;white-space:nowrap}
-  
-  @media (max-width: 1500px)
-    {.menu-panel{display:none}
-    .menu-toggle
-      {display:flex;flex-direction:column;gap:4px;width:2rem;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}.menu-toggle span{height:1px;width:100%;background:currentColor}.menu-open .menu-panel{position:absolute;top:4.5rem;right:6vw;display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem 1.5rem;padding:1.4rem;background:#111;color:#fff;white-space:nowrap}.menu-open .menu-panel a{font-size:.75rem}.menu-toggle span{height:1px;width:100%;background:currentColor}}
- 
-  @media
-    (max-width:1800px)
-    {.menu-open .menu-panel{grid-template-columns:1fr;right:1rem}.site-header{padding:1.5rem 1rem}}
+  .site-header{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:flex-start;gap:4rem;padding:0 6vw}.wordmark{flex:0 0 auto;min-width:11rem;color:inherit;font:600 2rem "Cormorant Garamond",serif;letter-spacing:.08em;text-decoration:none;transform:translateY(-1rem)}.menu-area{margin-left:auto;min-width:0}.menu-panel{display:flex;align-items:center;justify-content:flex-end;gap:clamp(.4rem,1vw,1.1rem);white-space:nowrap}.menu-panel a{color:inherit;font:500 .7rem Manrope,"Noto Sans JP",sans-serif;letter-spacing:.06em;text-decoration:none}.menu-toggle{display:none}
+  @media (max-width: 1500px){.menu-panel{display:none}.menu-toggle{display:flex;flex-direction:column;gap:4px;width:2rem;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}.menu-toggle span{height:1px;width:100%;background:currentColor}.menu-open .menu-panel{position:absolute;top:4.5rem;right:6vw;display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem 1.5rem;padding:1.4rem;background:#111;color:#fff;white-space:nowrap}.menu-open .menu-panel a{font-size:.75rem}}
+  @media (max-width:650px){.menu-open .menu-panel{grid-template-columns:1fr;right:1rem}.site-header{padding:1.5rem 1rem}}
 </style>
