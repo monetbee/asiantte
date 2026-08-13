@@ -217,21 +217,27 @@ const description =
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 2rem 5vw;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0 6vw;
   }
 
   .wordmark {
+    flex: 0 0 auto;
+    min-width: 11rem;
     font-family: "Cormorant Garamond", serif;
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-decoration: none;
+    transform: translateY(1rem);
   }
 
   .menu-area {
     position: relative;
-    width: min(68rem, 78vw);
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 0;
     margin-top: 2.7rem;
   }
 
