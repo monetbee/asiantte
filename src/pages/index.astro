@@ -30,16 +30,27 @@ const description =
         </button>
         <nav class="menu-panel" aria-label="サイトメニュー">
           <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさについて">About</a>
-          <a href="#collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
-          <a href="#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
-          <a href="#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
-          <a href="#collection" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
-          <a href="#collection" data-detail="静かな存在感を添えるリング">リング</a>
-          <a href="#collection" data-detail="The Drop — A mark of presence.">ピアス</a>
-          <a href="#collection" data-detail="自分のリズムで揺れるブレスレット">ブレスレット</a>
-          <a href="#collection" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
-          <a href="#collection" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
-          <a href="#collection" data-detail="最新のコレクションと新着アイテム">新作</a>
+          <a href="/collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
+          <a href="/#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
+          <a href="/#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
+          <a href="/categories/gift" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
+          <a href="/categories/rings" data-detail="静かな存在感を添えるリング">リング</a>
+          <a href="/categories/earrings" data-detail="The Drop — A mark of presence.">ピアス</a>
+          <a href="/categories/bracelets" data-detail="自分のリズムで揺れるブレスレット">ブレスレット</a>
+          <a href="/categories/necklaces" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
+          <a href="/categories" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
+          <a href="/new-arrivals" data-detail="最新のコレクションと新着アイテム">新作</a>
+          <a href="/fine-jewelry" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
+          <div class="language-menu">
+            <button class="language-trigger" type="button" aria-label="言語を選択" aria-expanded="false"><span aria-hidden="true">◎</span></button>
+            <div class="language-options">
+              <button class="language-option is-active" type="button" data-language="ja">日本語</button>
+              <button class="language-option" type="button" data-language="en">English</button>
+              <button class="language-option" type="button" data-language="zh">中文</button>
+              <button class="language-option" type="button" data-language="es">Español</button>
+              <button class="language-option" type="button" data-language="fr">Français</button>
+            </div>
+          </div>
         </nav>
         <div class="menu-detail" aria-live="polite">カーソルを合わせてください</div>
       </div>
@@ -156,6 +167,21 @@ const description =
   });
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
+  const languageMenu = document.querySelector('.language-menu');
+  const languageTrigger = document.querySelector('.language-trigger');
+  const languageOptions = document.querySelectorAll('.language-option');
+
+  languageTrigger?.addEventListener('click', () => {
+    const isOpen = languageMenu?.classList.toggle('language-open') ?? false;
+    languageTrigger.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  languageOptions.forEach((option) => {
+    option.addEventListener('click', () => {
+      languageOptions.forEach((item) => item.classList.remove('is-active'));
+      option.classList.add('is-active');
+    });
+  });
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
@@ -220,6 +246,68 @@ const description =
     align-items: center;
     gap: clamp(0.55rem, 1.15vw, 1.4rem);
     white-space: nowrap;
+    margin-left: auto;
+    line-height: 1.3rem;
+  }
+
+  .language-menu {
+    position: relative;
+    flex: 0 0 auto;
+  }
+
+  .language-trigger {
+    display: grid;
+    place-items: center;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid currentColor;
+    border-radius: 50%;
+    padding: 0;
+    background: transparent;
+    color: #ffffff;
+    font-size: 0.7rem;
+    cursor: pointer;
+  }
+
+  .language-trigger::before,
+  .language-trigger::after {
+    position: absolute;
+    width: 0.8rem;
+    height: 0.35rem;
+    border-top: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    border-radius: 50%;
+    content: "";
+    pointer-events: none;
+  }
+
+  .language-trigger::after {
+    width: 0.35rem;
+    height: 0.8rem;
+    border: 0;
+    border-right: 1px solid currentColor;
+    border-left: 1px solid currentColor;
+  }
+
+  .language-options {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    display: flex;
+    gap: 0.75rem;
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(216, 212, 206, 0.3);
+    background: rgba(17, 17, 17, 0.97);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-0.35rem);
+    transition: opacity 180ms ease, transform 180ms ease;
+  }
+
+  .language-menu.language-open .language-options {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .menu-panel a {
