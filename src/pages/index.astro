@@ -30,29 +30,16 @@ const description =
         </button>
         <nav class="menu-panel" aria-label="サイトメニュー">
           <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさについて">About</a>
-          <a href="/collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
-          <a href="/#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
-          <a href="/#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
-          <p class="menu-group-label">ファッションジュエリー</p>
-          <a href="/categories/gift" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
-          <a href="/categories/rings" data-detail="静かな存在感を添えるリング">リング</a>
-          <a href="/categories/earrings" data-detail="The Drop — A mark of presence.">ピアス</a>
-          <a href="/categories/bracelets" data-detail="自分のリズムで揺れるブレスレット">ブレスレット</a>
-          <a href="/categories/necklaces" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
-          <a href="/categories" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
-          <a href="/new-arrivals" data-detail="最新のコレクションと新着アイテム">新作</a>
-          <p class="menu-group-label">ファインジュエリー</p>
-          <a href="/fine-jewelry" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
-          <div class="language-menu">
-            <button class="language-trigger" type="button" aria-label="言語を選択" aria-expanded="false"><span aria-hidden="true">◎</span></button>
-            <div class="language-options">
-              <button class="language-option is-active" type="button" data-language="ja">日本語</button>
-              <button class="language-option" type="button" data-language="en">English</button>
-              <button class="language-option" type="button" data-language="zh">中文</button>
-              <button class="language-option" type="button" data-language="es">Español</button>
-              <button class="language-option" type="button" data-language="fr">Français</button>
-            </div>
-          </div>
+          <a href="#collection" data-detail="The First Collection — 身につける人の存在感を引き立てるジュエリー">Collection</a>
+          <a href="#founding-access" data-detail="First Collectionの先行情報と予約開始のお知らせを受け取る">Founding Access</a>
+          <a href="#contact" data-detail="Asiantteへのお問い合わせはこちら">Contact</a>
+          <a href="#collection" data-detail="大切な人に贈る、Asiantteのジュエリー">ギフト</a>
+          <a href="#collection" data-detail="静かな存在感を添えるリング">リング</a>
+          <a href="#collection" data-detail="The Drop — A mark of presence.">ピアス</a>
+          <a href="#collection" data-detail="自分のリズムで揺れるブレスレット">ブレスレット</a>
+          <a href="#collection" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a>
+          <a href="#collection" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a>
+          <a href="#collection" data-detail="最新のコレクションと新着アイテム">新作</a>
         </nav>
         <div class="menu-detail" aria-live="polite">カーソルを合わせてください</div>
       </div>
@@ -100,25 +87,31 @@ const description =
         <h2>Coming Soon</h2>
 
         <div class="collection-grid">
-          <a class="product-card product-drop" href="/products/the-drop">
-            <img src="/images/products/drop.jpg" alt="Asiantte The Drop earrings" loading="lazy" />
+          <article class="product-card product-drop">
+            <img
+              src="/images/products/ "
+              alt="Asiantte The Drop earrings"
+              loading="lazy"
+            />
             <div class="product-card-content">
               <span>01</span>
               <h3>The Drop</h3>
               <p>A mark of presence.</p>
-              <small>View details →</small>
             </div>
-          </a>
+          </article>
 
-          <a class="product-card product-wave" href="/products/the-wave">
-            <img src="/images/products/wave.webp" alt="Asiantte The Wave earrings" loading="lazy" />
+          <article class="product-card product-wave">
+            <img
+              src="/images/products/ "
+              alt="Asiantte The Wave earrings"
+              loading="lazy"
+            />
             <div class="product-card-content">
               <span>02</span>
               <h3>The Wave</h3>
               <p>Move with your own rhythm.</p>
-              <small>View details →</small>
             </div>
-          </a>
+          </article>
         </div>
       </section>
 
@@ -163,21 +156,6 @@ const description =
   });
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
-  const languageMenu = document.querySelector('.language-menu');
-  const languageTrigger = document.querySelector('.language-trigger');
-  const languageOptions = document.querySelectorAll('.language-option');
-
-  languageTrigger?.addEventListener('click', () => {
-    const isOpen = languageMenu?.classList.toggle('language-open') ?? false;
-    languageTrigger.setAttribute('aria-expanded', String(isOpen));
-  });
-
-  languageOptions.forEach((option) => {
-    option.addEventListener('click', () => {
-      languageOptions.forEach((item) => item.classList.remove('is-active'));
-      option.classList.add('is-active');
-    });
-  });
 
   menuToggle?.addEventListener('click', () => {
     const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
@@ -197,7 +175,7 @@ const description =
   :global(body) {
     margin: 0;
     background: #111111;
-    color: #ffffff;
+    color: #f4efe8;
     font-family: "Manrope", "Noto Sans JP", sans-serif;
   }
 
@@ -213,26 +191,21 @@ const description =
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 3rem;
+    align-items: center;
     padding: 2rem 5vw;
   }
 
   .wordmark {
-    flex: 0 0 auto;
     font-family: "Cormorant Garamond", serif;
     font-size: 2rem;
     font-weight: 600;
     letter-spacing: 0.08em;
-    line-height: 1;
     text-decoration: none;
   }
 
   .menu-area {
     position: relative;
-    flex: 0 1 auto;
-    width: max-content;
-    max-width: calc(100% - 13rem);
+    width: min(68rem, 78vw);
     margin-top: 2.7rem;
   }
 
@@ -245,88 +218,13 @@ const description =
     flex-wrap: nowrap;
     justify-content: flex-end;
     align-items: center;
-    gap: clamp(0.35rem, 0.8vw, 0.9rem);
-    line-height: 1.3rem;
-    overflow: visible;
-    padding-bottom: 0.25rem;
+    gap: clamp(0.55rem, 1.15vw, 1.4rem);
     white-space: nowrap;
-    margin-left: auto;
-  }
-
-  .menu-group-label {
-    flex-basis: 100%;
-    margin: 0.65rem 0 0.1rem;
-    color: #b08d57;
-    font-size: 0.58rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .language-menu {
-    position: relative;
-    flex: 0 0 auto;
-  }
-
-  .language-trigger {
-    display: grid;
-    place-items: center;
-    width: 1.3rem;
-    height: 1.3rem;
-    border: 1px solid currentColor;
-    border-radius: 50%;
-    padding: 0;
-    background: transparent;
-    color: #ffffff;
-    font-size: 0.7rem;
-    line-height: 1;
-    cursor: pointer;
-  }
-
-  .language-trigger::before,
-  .language-trigger::after {
-    position: absolute;
-    width: 0.8rem;
-    height: 0.35rem;
-    border-top: 1px solid currentColor;
-    border-bottom: 1px solid currentColor;
-    border-radius: 50%;
-    content: "";
-    pointer-events: none;
-  }
-
-  .language-trigger::after {
-    width: 0.35rem;
-    height: 0.8rem;
-    border: 0;
-    border-right: 1px solid currentColor;
-    border-left: 1px solid currentColor;
-  }
-
-  .language-options {
-    position: absolute;
-    top: calc(100% + 0.75rem);
-    right: 0;
-    display: flex;
-    gap: 0.75rem;
-    padding: 0.8rem 1rem;
-    border: 1px solid rgba(216, 212, 206, 0.3);
-    background: rgba(17, 17, 17, 0.97);
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-0.35rem);
-    transition: opacity 180ms ease, transform 180ms ease;
-  }
-
-  .language-menu.language-open .language-options {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(0);
   }
 
   .menu-panel a {
     position: relative;
-    color: #ffffff;
+    color: #f4efe8;
     font-family: "Manrope", "Noto Sans JP", sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
@@ -358,23 +256,6 @@ const description =
     transform: scaleX(1);
   }
 
-  .language-option {
-    border: 0;
-    padding: 0;
-    background: transparent;
-    color: #ffffff;
-    font: inherit;
-    font-size: 0.65rem;
-    cursor: pointer;
-    opacity: 0.65;
-  }
-
-  .language-option:hover,
-  .language-option.is-active {
-    color: #b08d57;
-    opacity: 1;
-  }
-
   .menu-detail {
     min-height: 1.5rem;
     margin-top: 0.85rem;
@@ -399,43 +280,9 @@ const description =
     content: "";
   }
 
-  @media (max-width: 1380px) {
-    .menu-panel {
-      display: none;
-    }
-
-    .menu-toggle {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 4px;
-      width: 2rem;
-      height: 1.4rem;
-      padding: 0;
-      border: 0;
-      background: transparent;
-      color: #ffffff;
-      cursor: pointer;
-    }
-
-    .menu-toggle span {
-      display: block;
-      width: 100%;
-      height: 1px;
-      background: currentColor;
-    }
-
-    .menu-area {
-      width: auto;
-      max-width: none;
-      margin-top: 0;
-    }
-  }
-
   @media (max-width: 900px) {
     .site-header {
       align-items: center;
-      gap: 1rem;
     }
 
     .menu-area {
@@ -446,14 +293,14 @@ const description =
     .menu-toggle {
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: flex-end;
       gap: 4px;
       width: 2rem;
-      height: 1.4rem;
+      height: 1.15vwemvwrem;
       padding: 0;
       border: 0;
       background: transparent;
-      color: #ffffff;
+      color: #f4efe8;
       cursor: pointer;
     }
 
@@ -609,7 +456,7 @@ const description =
     padding: 1rem 1.4rem;
     border: 1px solid #b08d57;
     background: transparent;
-    color: #ffffff;
+    color: #f4efe8;
     font: inherit;
     text-decoration: none;
     cursor: pointer;
@@ -625,7 +472,7 @@ const description =
   }
 
   .belief {
-    background: #ffffff;
+    background: #f4efe8;
     color: #111111;
   }
 
@@ -644,21 +491,18 @@ const description =
     max-width: 900px;
   }
 
-  .collection-grid article,
-  .collection-grid a {
+  .collection-grid article {
     position: relative;
     min-height: 25rem;
     overflow: hidden;
     border: 1px solid rgba(176, 141, 87, 0.55);
     isolation: isolate;
-    background: #24201d;
   }
 
   .product-card img {
     position: absolute;
-    z-index: 0;
+    z-index: -2;
     inset: 0;
-    display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -669,7 +513,7 @@ const description =
 
   .product-card::after {
     position: absolute;
-    z-index: 1;
+    z-index: -1;
     inset: 0;
     background: linear-gradient(180deg, rgba(17, 17, 17, 0.12) 15%, rgba(17, 17, 17, 0.82) 100%);
     content: "";
@@ -679,38 +523,14 @@ const description =
     transform: scale(1.04);
   }
 
-  .product-card {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-    background: #24201d;
-  }
-
   .product-card-content {
     position: absolute;
-    z-index: 2;
     inset: auto 2rem 2rem;
   }
 
   .product-card p,
-  .product-card h3,
-  .product-card small {
-    color: #ffffff;
-  }
-
-  .product-card small {
-    display: block;
-    margin-top: 0.8rem;
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    opacity: 0;
-    transform: translateY(0.5rem);
-    transition: opacity 180ms ease, transform 180ms ease;
-  }
-
-  .product-card:hover small {
-    opacity: 1;
-    transform: translateY(0);
+  .product-card h3 {
+    color: #f4efe8;
   }
 
   .collection-grid span {
@@ -735,7 +555,7 @@ const description =
     padding: 1rem;
     border: 1px solid #d8d4ce;
     background: transparent;
-    color: #ffffff;
+    color: #f4efe8;
     font: inherit;
   }
 
@@ -798,8 +618,7 @@ const description =
       grid-template-columns: 1fr;
     }
 
-    .collection-grid article,
-    .collection-grid a {
+    .collection-grid article {
       min-height: 22rem;
     }
 
