@@ -52,8 +52,8 @@ const description =
               <button class="language-option" type="button" data-language="fr">Français</button>
             </div>
           </div>
+          <div class="menu-detail" aria-live="polite"></div>
         </nav>
-        <div class="menu-detail" aria-live="polite">カーソルを合わせてください</div>
       </div>
     </header>
 
@@ -161,13 +161,14 @@ const description =
   const menuLinks = document.querySelectorAll('.menu-panel a');
 
   menuLinks.forEach((link) => {
-    link.addEventListener('mouseenter', () => {
+    const showDetail = () => {
+      if (!menuDetail) return;
       menuDetail.textContent = link.dataset.detail || '';
-    });
-
-    link.addEventListener('focus', () => {
-      menuDetail.textContent = link.dataset.detail || '';
-    });
+      menuDetail.style.top = `${link.offsetTop}px`;
+      menuDetail.classList.add('is-visible');
+    };
+    link.addEventListener('mouseenter', showDetail);
+    link.addEventListener('focus', showDetail);
   });
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
@@ -191,10 +192,20 @@ const description =
     const isPinned = menuArea?.classList.contains('menu-open') ?? false;
     menuArea?.classList.toggle('menu-open', !isPinned);
     menuArea?.classList.toggle('menu-dismissed', isPinned);
+    menuArea?.classList.toggle('menu-hover', !isPinned);
     menuToggle.setAttribute('aria-expanded', String(!isPinned));
   });
 
+  // CSS :hover に加えてクラスを切り替え、Hero動画の上でも確実に表示する。
+  menuArea?.addEventListener('pointerenter', () => {
+    if (!menuArea.classList.contains('menu-dismissed')) {
+      menuArea.classList.add('menu-hover');
+    }
+  });
+
   menuArea?.addEventListener('pointerleave', () => {
+    menuDetail?.classList.remove('is-visible');
+    menuArea.classList.remove('menu-hover');
     if (!menuArea.classList.contains('menu-open')) {
       menuArea.classList.remove('menu-dismissed');
     }
@@ -230,7 +241,7 @@ const description =
 
   .site-header {
     position: absolute;
-    z-index: 2;
+    z-index: 20;
     top: 0;
     left: 0;
     width: 100%;
@@ -421,11 +432,7 @@ const description =
     transition: opacity 180ms ease;
   }
 
-  .menu-panel a:hover + .menu-detail {
-    opacity: 1;
-  }
-
-  .menu-area:has(.menu-panel a:hover) .menu-detail {
+  .menu-detail.is-visible {
     opacity: 1;
   }
 
@@ -437,6 +444,8 @@ const description =
     .menu-area {
       width: auto;
       margin-top: 1rem;
+      padding-bottom: 1.4rem;
+      margin-bottom: -1.4rem;
     }
 
     .menu-toggle {
@@ -462,7 +471,7 @@ const description =
 
     .menu-panel {
       position: absolute;
-      top: 2.6rem;
+      top: 100%;
       right: 0;
       display: grid;
       grid-template-columns: 1fr;
@@ -475,6 +484,7 @@ const description =
       border: 1px solid rgba(216, 212, 206, 0.3);
       background: rgba(17, 17, 17, 0.97);
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+      z-index: 30;
       visibility: hidden;
       opacity: 0;
       pointer-events: none;
@@ -484,16 +494,34 @@ const description =
 
     .menu-detail {
       position: absolute;
-      top: calc(100% + 15rem);
-      right: 0;
-      width: min(22rem, calc(100vw - 3rem));
+      z-index: 1;
+      left: 8.5rem;
+      width: 12rem;
       margin: 0;
-      text-align: right;
+      color: rgba(216, 212, 206, .72);
+      font-size: .62rem;
+      line-height: 1.6;
+      text-align: left;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-.25rem);
+      transition: opacity 180ms ease, transform 180ms ease;
     }
 
+    .menu-detail.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .menu-panel a { width: max-content; }
+
+    /* パネル自身に入った状態も明示的に表示状態へ保つ。 */
     .menu-area.menu-open .menu-panel,
+    .menu-area.menu-hover .menu-panel,
     .menu-area:not(.menu-dismissed):hover .menu-panel,
-    .menu-area:not(.menu-dismissed):focus-within .menu-panel {
+    .menu-area:not(.menu-dismissed):focus-within .menu-panel,
+    .menu-panel:hover,
+    .menu-panel:focus-within {
       visibility: visible;
       opacity: 1;
       pointer-events: auto;
@@ -502,8 +530,10 @@ const description =
     }
 
     .menu-area.menu-open .menu-toggle,
+    .menu-area.menu-hover .menu-toggle,
     .menu-area:not(.menu-dismissed):hover .menu-toggle,
-    .menu-area:not(.menu-dismissed):focus-within .menu-toggle {
+    .menu-area:not(.menu-dismissed):focus-within .menu-toggle,
+    .menu-panel:hover ~ .menu-toggle {
       color: #b08d57;
     }
   }

@@ -3,14 +3,30 @@
   <div class="menu-area">
     <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="menu-panel" aria-label="サイトメニュー">
-      <a href="/about">About</a><a href="/collection">Collection</a><a href="/founding-access">Founding Access</a><a href="/contact">Contact</a>
-      <a href="/categories/gift">ギフト</a><a href="/categories/rings">リング</a><a href="/categories/earrings">ピアス</a><a href="/categories/bracelets">ブレスレット</a><a href="/categories/necklaces">ネックレス</a><a href="/categories">カテゴリー</a><a href="/new-arrivals">新作</a><a href="/fine-jewelry">ファインジュエリー</a>
+      <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさ">About</a><a href="/collection" data-detail="2026年秋の二つのコレクションと全20製品">Collection</a><a href="/founding-access" data-detail="先行情報と予約開始のお知らせ">Founding Access</a><a href="/contact" data-detail="Asiantteへのお問い合わせ">Contact</a>
+      <a href="/categories/gift" data-detail="大切な人へ贈る、記憶に残るジュエリー">ギフト</a><a href="/categories/rings" data-detail="手元に静かな存在感を添えるリング">リング</a><a href="/categories/earrings" data-detail="光を受け、表情を引き立てるピアス">ピアス</a><a href="/categories/bracelets" data-detail="所作に寄り添い、やわらかく揺れるブレスレット">ブレスレット</a><a href="/categories/necklaces" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a><a href="/categories" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a><a href="/new-arrivals" data-detail="最新のコレクションと新着アイテム">新作</a><a href="/fine-jewelry" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
+      <div class="menu-detail" aria-live="polite"></div>
     </nav>
   </div>
 </header>
 <script>
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
+  const menuDetail = document.querySelector<HTMLElement>('.menu-detail');
+  const menuLinks = document.querySelectorAll<HTMLAnchorElement>('.menu-panel a');
+
+  menuLinks.forEach((link) => {
+    const showDetail = () => {
+      if (!menuDetail) return;
+      menuDetail.textContent = link.dataset.detail || '';
+      menuDetail.style.top = `${link.offsetTop}px`;
+      menuDetail.classList.add('is-visible');
+    };
+    link.addEventListener('pointerenter', showDetail);
+    link.addEventListener('focus', showDetail);
+  });
+
+  menuArea?.addEventListener('pointerleave', () => menuDetail?.classList.remove('is-visible'));
   menuToggle?.addEventListener('click', () => {
     const isPinned = menuArea?.classList.contains('menu-open') ?? false;
     menuArea?.classList.toggle('menu-open', !isPinned);
@@ -76,10 +92,16 @@
     text-decoration: none;
   }
 
+  .menu-detail { display: none; }
+
   .menu-toggle { display: none; }
 
   @media (max-width: 1100px) {
-    .menu-area { margin-top: 1rem; }
+    .menu-area {
+      margin-top: 1rem;
+      padding-bottom: 1.4rem;
+      margin-bottom: -1.4rem;
+    }
 
     .menu-toggle {
       display: flex;
@@ -101,7 +123,7 @@
 
     .menu-panel {
       position: absolute;
-      top: 2.6rem;
+      top: 100%;
       right: 0;
       display: grid;
       grid-template-columns: 1fr;
@@ -135,6 +157,28 @@
       color: #b08d57;
     }
 
+    .menu-detail {
+      position: absolute;
+      z-index: 1;
+      left: 8.5rem;
+      display: block;
+      width: 12rem;
+      color: rgba(244, 239, 232, .72);
+      font-size: .62rem;
+      letter-spacing: .04em;
+      line-height: 1.6;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(-.25rem);
+      transition: opacity 180ms ease, transform 180ms ease;
+    }
+
+    .menu-detail.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .menu-panel a { width: max-content; }
   }
 
   @media (max-width: 650px) {

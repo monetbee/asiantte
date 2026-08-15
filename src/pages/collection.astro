@@ -22,6 +22,24 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
         <p>雫の光と、しなやかな線。二つのテーマで描く2026年秋のコレクション。</p>
       </header>
 
+      <section class="collection-controls" aria-label="コレクションの表示設定">
+        <label>テーマ
+          <select class="collection-filter">
+            <option value="all">すべて</option><option value="mizuha">MIZUHA</option><option value="sen">SEN</option>
+          </select>
+        </label>
+        <label>カテゴリー
+          <select class="category-filter">
+            <option value="all">すべて</option><option value="ピアス">ピアス</option><option value="リング">リング</option><option value="ネックレス">ネックレス</option><option value="ブレスレット">ブレスレット</option><option value="ヘアジュエリー">ヘアジュエリー</option><option value="ブローチ">ブローチ</option>
+          </select>
+        </label>
+        <label>並べ替え
+          <select class="product-sort">
+            <option value="default">おすすめ順</option><option value="name">名称順</option><option value="category">カテゴリー順</option>
+          </select>
+        </label>
+      </section>
+
       {autumn2026Collections.map((collection) => {
         const products = autumn2026Products.filter((product) => product.collectionId === collection.id);
         return (
@@ -35,7 +53,7 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
             </div>
             <div class="grid">
               {products.map((product, index) => (
-                <a class="card" href={`/products/${product.slug}`}>
+                <a class="card" href={`/products/${product.slug}`} data-collection={collection.id} data-category={product.category} data-name={product.name} data-index={index}>
                   <div class="image-placeholder" aria-label={`${product.name}の写真は準備中`}>
                     <span>{collection.name}</span><small>PHOTO COMING SOON</small>
                   </div>
@@ -57,6 +75,39 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
   </body>
 </html>
 
+<script>
+  const collectionFilter = document.querySelector<HTMLSelectElement>(".collection-filter");
+  const categoryFilter = document.querySelector<HTMLSelectElement>(".category-filter");
+  const productSort = document.querySelector<HTMLSelectElement>(".product-sort");
+  const collections = document.querySelectorAll<HTMLElement>(".collection");
+
+  function updateProducts() {
+    const collectionValue = collectionFilter?.value || "all";
+    const categoryValue = categoryFilter?.value || "all";
+    const sortValue = productSort?.value || "default";
+
+    collections.forEach((collection) => {
+      const grid = collection.querySelector<HTMLElement>(".grid");
+      const cards = Array.from(collection.querySelectorAll<HTMLAnchorElement>(".card"));
+      cards.forEach((card) => {
+        const visible = (collectionValue === "all" || card.dataset.collection === collectionValue)
+          && (categoryValue === "all" || card.dataset.category === categoryValue);
+        card.hidden = !visible;
+      });
+
+      cards.sort((a, b) => {
+        if (sortValue === "name") return (a.dataset.name || "").localeCompare(b.dataset.name || "", "ja");
+        if (sortValue === "category") return (a.dataset.category || "").localeCompare(b.dataset.category || "", "ja");
+        return Number(a.dataset.index) - Number(b.dataset.index);
+      });
+      grid?.append(...cards);
+      collection.hidden = !cards.some((card) => !card.hidden);
+    });
+  }
+
+  [collectionFilter, categoryFilter, productSort].forEach((control) => control?.addEventListener("change", updateProducts));
+</script>
+
 <style>
   :global(*) { box-sizing: border-box; }
   :global(body) { margin: 0; background: #fff; color: #171717; font-family: Manrope, "Noto Sans JP", sans-serif; }
@@ -66,7 +117,12 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
   h1, h2, h3 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
   h1 { margin: 1rem 0 2rem; font-size: clamp(4rem, 10vw, 8rem); line-height: .85; }
   .intro > p:last-child, .collection-heading > p:not(.eyebrow):not(.concept) { color: #666; line-height: 1.9; }
+  .collection-controls { display: flex; flex-wrap: wrap; gap: 1rem 2rem; padding: 1.5rem 0; border-top: 1px solid #17171722; border-bottom: 1px solid #17171722; }
+  .collection-controls label { display: flex; align-items: center; gap: .8rem; font-size: .65rem; letter-spacing: .08em; }
+  .collection-controls select { min-width: 8rem; border: 0; border-bottom: 1px solid #17171755; padding: .45rem 1.5rem .45rem 0; background: transparent; color: #171717; font: inherit; font-size: .72rem; cursor: pointer; }
   .collection { margin-top: 10rem; }
+  .collection[hidden] { display: none; }
+  .card[hidden] { display: none; }
   .collection-heading { max-width: 38rem; }
   h2 { margin: .6rem 0; font-size: clamp(3.5rem, 8vw, 6.5rem); line-height: .9; }
   .concept { margin: 1.5rem 0 .6rem; font-size: 1.05rem; letter-spacing: .04em; }
@@ -88,5 +144,5 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
   .card:hover small { opacity: 1; }
   footer { display: flex; justify-content: space-between; padding: 2rem 6vw; border-top: 1px solid #17171718; font-size: .7rem; letter-spacing: .1em; }
   footer span { color: #888; }
-  @media (max-width: 650px) { main { padding-top: 5rem; } .intro, .collection { margin-bottom: 6rem; } .collection { margin-top: 7rem; } .grid { grid-template-columns: 1fr; gap: 2.5rem; } footer { display: block; } footer span { display: block; margin-top: .5rem; } }
+  @media (max-width: 650px) { main { padding-top: 5rem; } .intro, .collection { margin-bottom: 6rem; } .collection { margin-top: 7rem; } .collection-controls { gap: 1rem; } .collection-controls label { width: 100%; justify-content: space-between; } .collection-controls select { min-width: 12rem; } .grid { grid-template-columns: 1fr; gap: 2.5rem; } footer { display: block; } footer span { display: block; margin-top: .5rem; } }
 </style>
