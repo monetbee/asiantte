@@ -12,12 +12,133 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
   menuToggle?.addEventListener('click', () => {
-    const open = menuArea?.classList.toggle('menu-open') ?? false;
-    menuToggle.setAttribute('aria-expanded', String(open));
+    const isPinned = menuArea?.classList.contains('menu-open') ?? false;
+    menuArea?.classList.toggle('menu-open', !isPinned);
+    menuArea?.classList.toggle('menu-dismissed', isPinned);
+    menuToggle.setAttribute('aria-expanded', String(!isPinned));
+  });
+
+  menuArea?.addEventListener('pointerleave', () => {
+    if (!menuArea.classList.contains('menu-open')) {
+      menuArea.classList.remove('menu-dismissed');
+    }
+  });
+
+  document.addEventListener('pointerdown', (event) => {
+    if (event.target instanceof Node && !menuArea?.contains(event.target)) {
+      menuArea?.classList.remove('menu-open', 'menu-dismissed');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
 <style>
-  .site-header{position:relative;z-index:10;display:flex;justify-content:space-between;align-items:flex-start;gap:4rem;padding:0 6vw}.wordmark{flex:0 0 auto;min-width:11rem;color:inherit;font:600 2rem "Cormorant Garamond",serif;letter-spacing:.08em;text-decoration:none;transform:translateY(1rem)}.menu-area{margin-left:auto;min-width:0}.menu-panel{display:flex;align-items:center;justify-content:flex-end;gap:clamp(.4rem,1vw,1.1rem);white-space:nowrap}.menu-panel a{color:inherit;font:500 .7rem Manrope,"Noto Sans JP",sans-serif;letter-spacing:.06em;text-decoration:none}.menu-toggle{display:none}
-  @media (max-width: 1700px){.menu-panel{display:none}.menu-toggle{display:flex;flex-direction:column;gap:4px;width:2rem;padding:0;border:0;background:transparent;color:inherit;cursor:pointer}.menu-toggle span{height:1px;width:100%;background:currentColor}.menu-open .menu-panel{position:absolute;top:4.5rem;right:6vw;display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem 1.5rem;padding:1.4rem;background:#111;color:#fff;white-space:nowrap}.menu-open .menu-panel a{font-size:.75rem}}
-  @media (max-width:650px){.menu-open .menu-panel{grid-template-columns:1fr;right:1rem}.site-header{padding:1.5rem 1rem}}
+  /* Home と全ページで、ロゴとメニューボタンの基準位置を共通化する。 */
+  .site-header {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: flex-start;
+    gap: 4rem;
+    padding: 0 6vw;
+  }
+
+  .wordmark {
+    flex: 0 0 auto;
+    min-width: 11rem;
+    color: inherit;
+    font: 600 2rem "Cormorant Garamond", serif;
+    letter-spacing: .08em;
+    text-decoration: none;
+    transform: translateY(1rem);
+  }
+
+  .menu-area {
+    position: relative;
+    flex: 0 0 auto;
+    min-width: 2rem;
+    margin-top: 2.7rem;
+    margin-left: auto;
+  }
+
+  .menu-panel {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: clamp(.4rem, 1vw, 1.1rem);
+    white-space: nowrap;
+    transform: translateY(-.9rem);
+  }
+
+  .menu-panel a {
+    color: inherit;
+    font: 500 .7rem Manrope, "Noto Sans JP", sans-serif;
+    letter-spacing: .06em;
+    text-decoration: none;
+  }
+
+  .menu-toggle { display: none; }
+
+  @media (max-width: 1100px) {
+    .menu-area { margin-top: 1rem; }
+
+    .menu-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 2rem;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .menu-panel {
+      position: absolute;
+      top: 2.6rem;
+      right: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .8rem;
+      width: max-content;
+      min-width: 22rem;
+      max-width: calc(100vw - 3rem);
+      padding: 1.4rem;
+      background: #111;
+      color: #fff;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(.75rem);
+      transition: opacity 260ms ease-out, transform 260ms ease-out, visibility 0s linear 260ms;
+    }
+
+    .menu-area.menu-open .menu-panel,
+    .menu-area:not(.menu-dismissed):hover .menu-panel,
+    .menu-area:not(.menu-dismissed):focus-within .menu-panel {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+      transition-delay: 0s;
+    }
+
+    .menu-area.menu-open .menu-toggle,
+    .menu-area:not(.menu-dismissed):hover .menu-toggle,
+    .menu-area:not(.menu-dismissed):focus-within .menu-toggle {
+      color: #b08d57;
+    }
+
+  }
+
+  @media (max-width: 650px) {
+    .site-header { padding: 1.5rem 6vw; }
+    .menu-panel { min-width: min(22rem, calc(100vw - 2rem)); }
+  }
 </style>

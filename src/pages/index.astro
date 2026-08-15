@@ -188,8 +188,23 @@ const description =
   });
 
   menuToggle?.addEventListener('click', () => {
-    const isOpen = menuArea?.classList.toggle('menu-open') ?? false;
-    menuToggle.setAttribute('aria-expanded', String(isOpen));
+    const isPinned = menuArea?.classList.contains('menu-open') ?? false;
+    menuArea?.classList.toggle('menu-open', !isPinned);
+    menuArea?.classList.toggle('menu-dismissed', isPinned);
+    menuToggle.setAttribute('aria-expanded', String(!isPinned));
+  });
+
+  menuArea?.addEventListener('pointerleave', () => {
+    if (!menuArea.classList.contains('menu-open')) {
+      menuArea.classList.remove('menu-dismissed');
+    }
+  });
+
+  document.addEventListener('pointerdown', (event) => {
+    if (event.target instanceof Node && !menuArea?.contains(event.target)) {
+      menuArea?.classList.remove('menu-open', 'menu-dismissed');
+      menuToggle?.setAttribute('aria-expanded', 'false');
+    }
   });
 </script>
 
@@ -419,13 +434,9 @@ const description =
   }
 
   @media (max-width: 1100px) {
-    .site-header {
-      align-items: center;
-    }
-
     .menu-area {
       width: auto;
-      margin-top: 0;
+      margin-top: 1rem;
     }
 
     .menu-toggle {
@@ -434,7 +445,6 @@ const description =
       justify-content: flex-end;
       gap: 4px;
       width: 2rem;
-      height: 1.15vwemvwrem;
       padding: 0;
       border: 0;
       background: transparent;
@@ -465,10 +475,11 @@ const description =
       border: 1px solid rgba(216, 212, 206, 0.3);
       background: rgba(17, 17, 17, 0.97);
       box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.35);
+      visibility: hidden;
       opacity: 0;
       pointer-events: none;
-      transform: translateY(-0.5rem);
-      transition: opacity 180ms ease, transform 180ms ease;
+      transform: translateY(0.75rem);
+      transition: opacity 260ms ease-out, transform 260ms ease-out, visibility 0s linear 260ms;
     }
 
     .menu-detail {
@@ -480,12 +491,20 @@ const description =
       text-align: right;
     }
 
-    .menu-area:hover .menu-panel,
-    .menu-area:focus-within .menu-panel,
-    .menu-area.menu-open .menu-panel {
+    .menu-area.menu-open .menu-panel,
+    .menu-area:not(.menu-dismissed):hover .menu-panel,
+    .menu-area:not(.menu-dismissed):focus-within .menu-panel {
+      visibility: visible;
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+      transition-delay: 0s;
+    }
+
+    .menu-area.menu-open .menu-toggle,
+    .menu-area:not(.menu-dismissed):hover .menu-toggle,
+    .menu-area:not(.menu-dismissed):focus-within .menu-toggle {
+      color: #b08d57;
     }
   }
 

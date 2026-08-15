@@ -1,0 +1,131 @@
+---
+import SiteMenu from "../../components/SiteMenu.astro";
+import { autumn2026Products, type AutumnProduct } from "../../data/autumn-2026";
+
+export function getStaticPaths() {
+  return autumn2026Products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
+
+const { product } = Astro.props as { product: AutumnProduct };
+const placement = product.category === "ピアス" ? "耳元" : product.category === "ネックレス" ? "首元" : product.category === "ブレスレット" ? "手首" : "手元";
+---
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{product.name} — Asiantte</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <SiteMenu />
+    <main class="product-page">
+      <section class="product-visual" aria-label={`${product.name}の写真は準備中`}>
+        <span>{product.collectionName}</span>
+        <p>PRODUCT PHOTO<br />COMING SOON</p>
+      </section>
+
+      <section class="product-info" aria-labelledby="product-title">
+        <p class="eyebrow">{product.collectionName} / AUTUMN 2026 · {product.category}</p>
+        <h1 id="product-title">{product.name}</h1>
+        <p class="price">{product.price}</p>
+        <p class="description">{product.description}</p>
+        <dl class="details">
+          <div><dt>制作国</dt><dd>{product.madeIn}</dd></div>
+          <div><dt>コレクション</dt><dd>{product.collectionName} / 2026 Autumn</dd></div>
+          <div><dt>商品写真</dt><dd>準備中</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <section class="try-on" aria-labelledby="try-on-title">
+      <div class="try-on-copy">
+        <p class="eyebrow">VIRTUAL TRY-ON</p>
+        <h2 id="try-on-title">バーチャル試着</h2>
+        <p>ご自身の写真を選び、{placement}での見え方を確認できます。商品写真が追加されるまでは、試着位置のプレビューとしてご利用いただけます。</p>
+        <button class="upload-button" type="button">写真を選んで試着する</button>
+        <input class="photo-input" type="file" accept="image/*" hidden />
+        <p class="privacy-note">選択した写真はこのブラウザ内でのみ表示され、送信・保存されません。</p>
+      </div>
+      <div class="try-on-preview">
+        <img class="customer-photo" alt="選択した試着写真" hidden />
+        <div class="preview-empty">YOUR PHOTO</div>
+        <div class="jewelry-marker" aria-hidden="true"><span>{product.collectionName}</span></div>
+        <div class="placement-controls" aria-label="試着位置">
+          <button type="button" class="placement is-active" data-placement="ear">耳元</button>
+          <button type="button" class="placement" data-placement="neck">首元</button>
+          <button type="button" class="placement" data-placement="wrist">手首</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>Asiantte <span>Asian Beauty, Unapologetically.</span></footer>
+  </body>
+</html>
+
+<script>
+  const uploadButton = document.querySelector<HTMLButtonElement>(".upload-button");
+  const photoInput = document.querySelector<HTMLInputElement>(".photo-input");
+  const customerPhoto = document.querySelector<HTMLImageElement>(".customer-photo");
+  const preview = document.querySelector<HTMLElement>(".try-on-preview");
+  const emptyState = document.querySelector<HTMLElement>(".preview-empty");
+  const placementButtons = document.querySelectorAll<HTMLButtonElement>(".placement");
+
+  uploadButton?.addEventListener("click", () => photoInput?.click());
+  photoInput?.addEventListener("change", () => {
+    const file = photoInput.files?.[0];
+    if (!file || !customerPhoto || !preview || !emptyState) return;
+    customerPhoto.src = URL.createObjectURL(file);
+    customerPhoto.hidden = false;
+    emptyState.hidden = true;
+    preview.classList.add("has-photo");
+  });
+
+  placementButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      placementButtons.forEach((item) => item.classList.remove("is-active"));
+      button.classList.add("is-active");
+      preview?.setAttribute("data-placement", button.dataset.placement || "ear");
+    });
+  });
+</script>
+
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) { margin: 0; background: #fff; color: #171717; font-family: Manrope, "Noto Sans JP", sans-serif; }
+  main, .try-on { max-width: 1300px; margin: auto; padding-right: 6vw; padding-left: 6vw; }
+  .product-page { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(20rem, .9fr); gap: clamp(2rem, 8vw, 8rem); align-items: center; padding-top: 5rem; padding-bottom: 7rem; }
+  .product-visual { display: flex; flex-direction: column; justify-content: flex-end; aspect-ratio: 1 / 1.08; padding: 2rem; background: #e8eeed; color: #607a7b; }
+  .product-visual span { font: 500 clamp(3rem, 8vw, 6rem) "Cormorant Garamond", serif; letter-spacing: .08em; }
+  .product-visual p { margin: .5rem 0 0; font-size: .65rem; letter-spacing: .14em; line-height: 1.6; }
+  .eyebrow { margin: 0; color: #9a753e; font-size: .65rem; letter-spacing: .16em; }
+  h1, h2 { font-family: "Cormorant Garamond", serif; font-weight: 500; }
+  h1 { margin: 1rem 0 .5rem; font-size: clamp(3rem, 7vw, 6rem); line-height: .9; }
+  .price { margin: 1.5rem 0 2rem; font-size: .9rem; letter-spacing: .08em; }
+  .description { max-width: 30rem; color: #555; line-height: 1.9; }
+  .details { margin: 2.5rem 0 0; border-top: 1px solid #17171738; }
+  .details div { display: flex; justify-content: space-between; gap: 1rem; padding: .85rem 0; border-bottom: 1px solid #1717171f; font-size: .72rem; }
+  dt { color: #777; } dd { margin: 0; text-align: right; }
+  .try-on { display: grid; grid-template-columns: minmax(16rem, .8fr) minmax(20rem, 1.2fr); gap: clamp(2rem, 7vw, 7rem); align-items: center; padding-top: 6rem; padding-bottom: 7rem; border-top: 1px solid #17171718; }
+  .try-on h2 { margin: .8rem 0 1rem; font-size: clamp(2.7rem, 5vw, 4.5rem); line-height: .9; }
+  .try-on-copy > p:not(.eyebrow):not(.privacy-note) { color: #555; font-size: .85rem; line-height: 1.9; }
+  .upload-button { margin-top: 1.5rem; padding: 1rem 1.3rem; border: 1px solid #b08d57; background: #b08d57; color: #171717; font: inherit; font-size: .7rem; letter-spacing: .1em; cursor: pointer; transition: background .2s ease; }
+  .upload-button:hover { background: transparent; }
+  .privacy-note { color: #777; font-size: .62rem; line-height: 1.7; }
+  .try-on-preview { position: relative; display: grid; min-height: 30rem; overflow: hidden; place-items: center; background: #efede9; }
+  .customer-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .preview-empty { color: #9d958c; font: 500 1.3rem "Cormorant Garamond", serif; letter-spacing: .16em; }
+  .jewelry-marker { position: absolute; top: 30%; left: 65%; display: grid; width: 4.5rem; height: 4.5rem; place-items: center; border: 1px solid #b08d57; border-radius: 50%; background: #fff9; color: #8d6c37; transition: top .25s ease, left .25s ease; }
+  .jewelry-marker span { font: 500 .6rem "Cormorant Garamond", serif; letter-spacing: .1em; }
+  .try-on-preview[data-placement="neck"] .jewelry-marker { top: 53%; left: 50%; }
+  .try-on-preview[data-placement="wrist"] .jewelry-marker { top: 75%; left: 62%; }
+  .placement-controls { position: absolute; right: 1rem; bottom: 1rem; display: flex; gap: .4rem; }
+  .placement { border: 1px solid #17171733; padding: .55rem .65rem; background: #fffc; color: #171717; font: inherit; font-size: .62rem; cursor: pointer; }
+  .placement.is-active { border-color: #b08d57; color: #8d6c37; }
+  footer { display: flex; justify-content: space-between; padding: 2rem 6vw; border-top: 1px solid #17171718; font-size: .7rem; letter-spacing: .1em; }
+  footer span { color: #888; }
+  @media (max-width: 760px) { .product-page, .try-on { grid-template-columns: 1fr; } .product-page { padding-top: 3rem; } .try-on { padding-top: 4rem; } .try-on-preview { min-height: 24rem; } footer { display: block; } footer span { display: block; margin-top: .5rem; } }
+</style>
