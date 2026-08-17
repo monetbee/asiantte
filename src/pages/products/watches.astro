@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const title = "Asiantte Watch Collection — 時計｜Asiantte";
+---
+
+<BaseLayout title={title}>
+  <section class="product-hero">
+    <div class="hero-media">
+      <img src="/images/products/watch-hero.jpg" alt="Asiantte Royal Green Watch — フロントビュー" />
+    </div>
+    <div class="product-summary">
+      <p class="eyebrow">FINE WATCHES</p>
+      <h1>Asiantte Royal — グリーンダイアル</h1>
+      <p class="price">¥198,000</p>
+      <p class="lead">クラシックな意匠を現代的に仕立てたAsiantteの機械式ウォッチ。グリーンのサンバーストダイアルと刻みのベゼルが特徴です。</p>
+      <p><a class="cta" href="/contact">ご購入・お問い合わせ</a></p>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="tile"><img src="/images/products/watch-wrist.jpg" alt="手首に着けたAsiantte Royal" /></div>
+    <div class="tile"><img src="/images/products/watch-back.jpg" alt="Asiantte Royal — ケースバックとムーブメント" /></div>
+  </section>
+
+  <section class="specs">
+    <h2>仕様</h2>
+    <dl>
+      <div><dt>ムーブメント</dt><dd>自動巻き（NH35相当）</dd></div>
+      <div><dt>ケース素材</dt><dd>316L ステンレススチール（ゴールドPVD）</dd></div>
+      <div><dt>ケース径</dt><dd>36mm</dd></div>
+      <div><dt>防水</dt><dd>100m</dd></div>
+      <div><dt>風防</dt><dd>サファイアクリスタル</dd></div>
+      <div><dt>ブレス</dt><dd>5連ジュビリーブレス（クイックリリース）</dd></div>
+      <div><dt>限定</dt><dd>限定300本（シリアル刻印入り）</dd></div>
+    </dl>
+  </section>
+
+  <section class="description">
+    <h2>商品説明</h2>
+    <p>Asiantte Royalは、伝統的なドレスウォッチのコードを受け継ぎつつ、都会的な仕上げを施した一品です。ダイアルはサンバースト仕上げで光の角度により表情を変えます。日常使いに適した堅牢性と、オーナーシップを感じさせる細部の作り込みを両立しました。</p>
+  </section>
+
+  <style>
+    :global(body){ background: #0f0f0f; }
+    .product-hero{ display:flex; gap:3rem; align-items:center; padding:6rem 6vw; max-width:1200px; margin:auto; }
+    .hero-media img{ width:420px; max-width:38vw; border-radius:6px; box-shadow:0 1.5rem 3.5rem rgba(0,0,0,.6); }
+    .product-summary{ max-width:46ch; color:#efece6; }
+    .eyebrow{ color:#b08d57; letter-spacing:.14em; font-size:.75rem; margin:0 0 .8rem; }
+    h1{ font-family: 'Cormorant Garamond', serif; margin:.2rem 0 1rem; font-size:2.8rem; }
+    .price{ color:#e3c98e; font-weight:600; margin-bottom:1rem; }
+    .lead{ color:#cfc9c2; line-height:1.8; }
+    .cta{ display:inline-block; margin-top:1.2rem; background:#b08d57; color:#fff; padding:.7rem 1.1rem; text-decoration:none; border-radius:6px; }
+    .gallery{ display:grid; grid-template-columns: repeat(2,1fr); gap:1rem; max-width:1200px; margin:2rem auto; padding:0 6vw; }
+    .gallery img{ width:100%; border-radius:6px; box-shadow:0 .6rem 2rem rgba(0,0,0,.45); }
+    .specs{ max-width:720px; margin:3rem auto; padding:0 6vw; color:#ddd; }
+    .specs h2{ font-family:'Cormorant Garamond', serif; color:#f5efe6; }
+    dl div{ display:flex; justify-content:space-between; padding:.6rem 0; border-bottom:1px solid rgba(255,255,255,.04); }
+    dt{ color:#bdb5ad; } dd{ margin:0; }
+    .description{ max-width:920px; margin:2rem auto 6rem; padding:0 6vw; color:#d7d1ca; line-height:1.8; }
+    @media (max-width:800px){ .product-hero{ flex-direction:column; padding:3.5rem 6vw; } .hero-media img{ width:86vw; max-width:none; } .gallery{ grid-template-columns:1fr; } }
+  </style>
+</BaseLayout>
