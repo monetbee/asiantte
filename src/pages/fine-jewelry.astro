@@ -1,5 +1,6 @@
 ---
 import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
 
 const masterpieces = [
   { number: "01", name: "MIZUHA Imperial Cascade", category: "High Jewelry Earrings", price: "¥12,800,000", detail: "雫の連なりを、ダイヤモンドとプラチナで描いた一点制作のイヤリング。", stone: "Diamond · Platinum 950" },
@@ -70,7 +71,7 @@ const masterpieces = [
         </div>
       </section>
     </main>
-    <footer><span>Asiantte</span><span>Asian Beauty, Unapologetically.</span></footer>
+    <Footer />
   </body>
 </html>
 
@@ -107,8 +108,7 @@ const masterpieces = [
   dl { margin: 1.5rem 0; border-top: 1px solid rgba(22,22,22,.06); }
   dl div { display: flex; justify-content: space-between; padding: .6rem 0; border-bottom: 1px solid rgba(22,22,22,.04); font-size: .65rem; } dt { color: #777068; } dd { margin: 0; text-align: right; }
   .card a { color: #6b5840; font-size: .66rem; letter-spacing: .1em; text-decoration: none; } .card a:hover { color: #3a2f1f; }
-  footer { display: flex; justify-content: space-between; gap: 2rem; padding: 2rem 6vw; border-top: 1px solid rgba(22,22,22,.06); color: #777068; font-size: .7rem; letter-spacing: .1em; }
   .category-link{ display:inline-block; margin-top:1rem; color:#e3c98e; text-decoration:none; }
   .category-link:hover{ color:#fff; }
-  @media (max-width: 720px) { main { padding-top: 5rem; } .intro { min-height: 52vh; } .statement { margin: 5rem 0 7rem; } .lineup-heading { display: block; } .lineup-heading span { display: block; margin-top: 1.5rem; } .grid { grid-template-columns: 1fr; gap: 4rem; } footer { display: block; } footer span + span { display: block; margin-top: .6rem; } }
+  @media (max-width: 720px) { main { padding-top: 5rem; } .intro { min-height: 52vh; } .statement { margin: 5rem 0 7rem; } .lineup-heading { display: block; } .lineup-heading span { display: block; margin-top: 1.5rem; } .grid { grid-template-columns: 1fr; gap: 4rem; } }
 </style>

@@ -1,4 +1,6 @@
 ---
+import Footer from "../../components/Footer.astro";
+
 const product = {
   name: "The Drop",
   category: "Fashion Jewelry / Earrings",
@@ -59,7 +61,7 @@ const product = {
       </section>
     </main>
 
-    <footer>Asiantte <span>Asian Beauty, Unapologetically.</span></footer>
+    <Footer />
   </body>
 </html>
 
@@ -109,7 +111,5 @@ const product = {
   .detail-panel h2 { margin: 0 0 0.5rem; font-size: 1.8rem; }
   .detail-panel h3 { margin: 1.25rem 0 0.15rem; font-size: 1.25rem; }
   .detail-panel p { margin: 0; }
-  footer { display: flex; justify-content: space-between; padding: 2rem clamp(1.25rem, 5vw, 5rem); border-top: 1px solid #17171726; font-size: 0.7rem; letter-spacing: 0.1em; }
-  footer span { opacity: 0.5; }
-  @media (max-width: 760px) { .product-page { grid-template-columns: 1fr; min-height: auto; padding-top: 1rem; } .product-info { padding-bottom: 2rem; } footer { display: block; } footer span { display: block; margin-top: 0.5rem; } }
+  @media (max-width: 760px) { .product-page { grid-template-columns: 1fr; min-height: auto; padding-top: 1rem; } .product-info { padding-bottom: 2rem; } }
 </style>

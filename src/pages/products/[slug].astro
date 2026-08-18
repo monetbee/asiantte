@@ -1,5 +1,6 @@
 ---
 import SiteMenu from "../../components/SiteMenu.astro";
+import Footer from "../../components/Footer.astro";
 import { autumn2026Products, type AutumnProduct } from "../../data/autumn-2026";
 
 export function getStaticPaths() {
@@ -62,7 +63,7 @@ const placement = product.category === "ピアス" ? "耳元" : product.category
       </div>
     </section>
 
-    <footer>Asiantte <span>Asian Beauty, Unapologetically.</span></footer>
+    <Footer />
   </body>
 </html>
 
@@ -125,7 +126,5 @@ const placement = product.category === "ピアス" ? "耳元" : product.category
   .placement-controls { position: absolute; right: 1rem; bottom: 1rem; display: flex; gap: .4rem; }
   .placement { border: 1px solid #17171733; padding: .55rem .65rem; background: #fffc; color: #171717; font: inherit; font-size: .62rem; cursor: pointer; }
   .placement.is-active { border-color: #b08d57; color: #8d6c37; }
-  footer { display: flex; justify-content: space-between; padding: 2rem 6vw; border-top: 1px solid #17171718; font-size: .7rem; letter-spacing: .1em; }
-  footer span { color: #888; }
-  @media (max-width: 760px) { .product-page, .try-on { grid-template-columns: 1fr; } .product-page { padding-top: 3rem; } .try-on { padding-top: 4rem; } .try-on-preview { min-height: 24rem; } footer { display: block; } footer span { display: block; margin-top: .5rem; } }
+  @media (max-width: 760px) { .product-page, .try-on { grid-template-columns: 1fr; } .product-page { padding-top: 3rem; } .try-on { padding-top: 4rem; } .try-on-preview { min-height: 24rem; } }
 </style>

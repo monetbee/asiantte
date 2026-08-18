@@ -1,5 +1,6 @@
 ---
 import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
 import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
 ---
 
@@ -71,7 +72,7 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
         );
       })}
     </main>
-    <footer>Asiantte <span>Asian Beauty, Unapologetically.</span></footer>
+    <Footer />
   </body>
 </html>
 
@@ -142,7 +143,5 @@ import { autumn2026Collections, autumn2026Products } from "../data/autumn-2026";
   .meta strong { display: block; margin-top: 1rem; font-size: .75rem; font-weight: 500; }
   .meta small { display: block; margin-top: 1.2rem; opacity: 0; transition: opacity .2s ease; }
   .card:hover small { opacity: 1; }
-  footer { display: flex; justify-content: space-between; padding: 2rem 6vw; border-top: 1px solid #17171718; font-size: .7rem; letter-spacing: .1em; }
-  footer span { color: #888; }
-  @media (max-width: 650px) { main { padding-top: 5rem; } .intro, .collection { margin-bottom: 6rem; } .collection { margin-top: 7rem; } .collection-controls { gap: 1rem; } .collection-controls label { width: 100%; justify-content: space-between; } .collection-controls select { min-width: 12rem; } .grid { grid-template-columns: 1fr; gap: 2.5rem; } footer { display: block; } footer span { display: block; margin-top: .5rem; } }
+  @media (max-width: 650px) { main { padding-top: 5rem; } .intro, .collection { margin-bottom: 6rem; } .collection { margin-top: 7rem; } .collection-controls { gap: 1rem; } .collection-controls label { width: 100%; justify-content: space-between; } .collection-controls select { min-width: 12rem; } .grid { grid-template-columns: 1fr; gap: 2.5rem; } }
 </style>
