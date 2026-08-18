@@ -12,16 +12,16 @@
         },
         {
             "label": "Run Dev Server",
-            "type": "npm",
-            "script": "dev",
+            "type": "shell",
+            "command": "npm run dev",
             "dependsOn": "Kill Port 4321",
             "dependsOrder": "sequence",
             "runOptions": {
                 "runOn": "folderOpen"
             },
             "presentation": {
-                "reveal": "silent",
-                "panel": "new"
+                "reveal": "always",
+                "panel": "shared"
             }
         }
     ]
