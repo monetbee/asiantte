@@ -1,10 +1,62 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "持続可能性 — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>持続可能性 — Asiantte</title>
+  <meta name="description" content="Asiantteの持続可能性への取り組み。責任ある素材調達、循環型ものづくり、次世代へつなぐジュエリーのあり方をご紹介します。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">SUSTAINABILITY</p>
+    <h1>持続可能性</h1>
+    <p class="lead">美しいものを、これからもずっと。Asiantteは、ジュエリーを未来へつなぐために、責任あるものづくりと循環型の仕組みに取り組んでいます。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>持続可能性に関する取り組み（プレースホルダ）。</p>
+    <section>
+      <h2>私たちの約束</h2>
+      <p>Asiantteは、「美しいものを、ずっと大切に使い続ける」という考え方を大切にしています。ジュエリーは、世代を超えて受け継がれるもの。持続可能なものづくりは、私たちの責任です。</p>
+    </section>
+
+    <section>
+      <h2>取り組み</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>責任ある素材調達</h3>
+          <p>環境と人権に配慮した、責任ある方法で調達された素材を使用しています。トレーサビリティを確保し、透明性のあるものづくりを目指しています。</p>
+        </div>
+        <div class="card">
+          <h3>リサイクル素材の活用</h3>
+          <p>リサイクルゴールドやリサイクルシルバーなど、再生素材を積極的に活用し、新たな資源の採掘を減らす取り組みを進めています。</p>
+        </div>
+        <div class="card">
+          <h3>認定中古ジュエリー</h3>
+          <p>品質検査を経た認定中古ジュエリーの販売を通じて、ジュエリーの循環を促進しています。物語を受け継ぐ、サステナブルな選択です。</p>
+          <a href="/certified-preowned" class="cta-button secondary">認定中古ジュエリーを見る</a>
+        </div>
+        <div class="card">
+          <h3>長く使えるものづくり</h3>
+          <p>修理やメンテナンスができるよう、永く愛用できるデザインと丈夫な構造を追求しています。アフターサービスも充実しています。</p>
+          <a href="/after-service" class="cta-button secondary">アフターサービスを見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>未来のために</h2>
+      <p>私たちのジュエリーが、次の世代の誰かの手に渡り、また新しい物語を紡いでいく。そんな循環を生み出すことが、Asiantteの目指す持続可能性です。地球と、人と、美しいものとの関係を、これからも大切にしていきます。</p>
+    </section>
+
+    <div class="note">
+      サステナビリティへの取り組みは、素材とクラフトのページでもご紹介しています。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

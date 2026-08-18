@@ -1,10 +1,81 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "ジュエリーのお手入れ — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ジュエリーのお手入れ — Asiantte</title>
+  <meta name="description" content="Asiantteのジュエリーを長く美しく保つためのお手入れ方法をご案内します。日常のお手入れから保管方法、注意点まで。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">JEWELRY CARE</p>
+    <h1>ジュエリーのお手入れ</h1>
+    <p class="lead">ジュエリーは、日々のお手入れによってその輝きを長く保つことができます。Asiantteのジュエリーを美しく保つための、お手入れのポイントをご紹介します。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>お手入れ方法の解説（プレースホルダ）。</p>
+    <section>
+      <h2>毎日のお手入れ</h2>
+      <div class="card">
+        <h3>やわらかい布で拭く</h3>
+        <p>ご使用後は、やわらかい乾いた布でやさしく拭いてください。汗や皮脂、化粧品などが付着したままにしておくと、輝きが曇る原因になります。</p>
+      </div>
+      <div class="card">
+        <h3>就寝時・入浴時は外す</h3>
+        <p>眠っている間や入浴、水泳、スポーツの際は、ジュエリーを外すことをおすすめします。衝撃や水、石けんやシャンプーとの接触によるダメージを防ぎます。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>定期的なお手入れ</h2>
+      <ul class="num-list">
+        <li>ぬるま湯にごく少量の中性洗剤を溶かします。</li>
+        <li>ジュエリーを数分間浸し、やわらかいブラシでやさしく汚れを落とします。</li>
+        <li>ぬるま湯でよくすすぎ、やわらかい布で水分を拭き取ります。</li>
+        <li>完全に乾かしてから、ジュエリーボックスに保管してください。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>保管方法</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>正しい保管</h3>
+          <p>ジュエリーボックスや小袋に個別に保管することで、ジュエリー同士の接触による傷を防ぎます。直射日光や高温多湿を避けて保管してください。</p>
+        </div>
+        <div class="card">
+          <h3>旅行の際は</h3>
+          <p>旅行の際は、ジュエリーケースややわらかい小袋に入れて、他の荷物と分けて持ち運ぶことをおすすめします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>避けたいこと</h2>
+      <ul>
+        <li>香水やヘアスプレーを付けた直後にジュエリーを身につけること</li>
+        <li>プールや温泉、海での着用</li>
+        <li>硬い物への接触や強い衝撃</li>
+        <li>ジュエリー用以外の薬品や研磨剤の使用</li>
+        <li>超音波洗浄器の使用（石の種類によっては避けてください）</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>プロのメンテナンス</h2>
+      <p>定期的に販売店や修理窓口で、プロによるチェックとクリーニングをおすすめします。石の緩みや留め具の状態など、ご自身では気づきにくい部分も確認できます。</p>
+      <a href="/after-service" class="cta-button secondary">アフターサービスを見る</a>
+    </section>
+
+    <div class="note">
+      お手入れ方法についてご不明な点があれば、お近くの販売店またはカスタマーサービスまでお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

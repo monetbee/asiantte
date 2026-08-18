@@ -1,10 +1,59 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "ブランドの歴史 — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ブランドの歴史 — Asiantte</title>
+  <meta name="description" content="Asiantteのブランドの歴史をご紹介します。アジアの美しさへの敬意から始まった、私たちの歩み。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">OUR STORY</p>
+    <h1>ブランドの歴史</h1>
+    <p class="lead">Asiantteは、アジアに息づく美しさへの敬意から始まりました。伝統と現代を紡ぎながら、世代を超えて愛されるジュエリーづくりを続けています。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>ブランドの歴史（プレースホルダ）。</p>
+    <section>
+      <h2>はじまり</h2>
+      <p>Asiantteの物語は、アジア各地の伝統的な装飾文化と、そこに息づく美意識への深い敬意から始まりました。画一的な美の基準が広がる世界の中で、「アジアの美しさを、そのまま讃えたい」という想いが、ブランドの原点です。</p>
+    </section>
+
+    <section>
+      <h2>ブランドの歩み</h2>
+      <div class="card">
+        <h3>2029年 — ブランド設立</h3>
+        <p>Asiantteが誕生。「Asian Beauty, Unapologetically.」のフィロソフィーのもと、すべてのアジアの美しさを讃えるジュエリーブランドとして歩みを始めました。</p>
+      </div>
+      <div class="card">
+        <h3>2030年 — ファーストコレクション発表</h3>
+        <p>ブランドの原点となるファーストコレクション「The First Collection」を発表。身につける人の存在感を引き立てるデザインが、多くの方に迎えられました。</p>
+      </div>
+      <div class="card">
+        <h3>2031年 — サステナビリティへの取り組み</h3>
+        <p>持続可能なものづくりへの取り組みを本格化。責任ある素材調達と、循環型のものづくりを目指す活動を開始しました。</p>
+      </div>
+      <div class="card">
+        <h3>2032年 — 世界へ、そして未来へ</h3>
+        <p>アジアの美しさを世界に届ける新たなステージへ。これからも、身につける人ひとりひとりの物語に寄り添い続けます。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>受け継ぐ想い</h2>
+      <p>私たちのジュエリーは、単なる装飾品ではありません。アジアの美しさへの敬意、職人の技術、そして受け継がれる物語。Asiantteの歴史は、これからも、身につける人々の物語とともに紡がれていきます。</p>
+      <a href="/about" class="cta-button secondary">Asiantteについて見る</a>
+    </section>
+
+    <div class="note">
+      ブランドのものづくりについてもっと知りたい方は、素材とクラフトのページをご覧ください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

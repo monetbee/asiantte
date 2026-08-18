@@ -1,10 +1,61 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "ジュエリーの構造 — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ジュエリーの構造 — Asiantte</title>
+  <meta name="description" content="Asiantteのジュエリーの構造をご紹介します。チェーン、留め具、石留めなど、品質と美しさを支えるディテール。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">JEWELRY ANATOMY</p>
+    <h1>ジュエリーの構造</h1>
+    <p class="lead">一つのジュエリーには、多くの繊細なパーツとそれを支える確かな技術が込められています。Asiantteのジュエリーを構成する、大切なディテールをご紹介します。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>ジュエリーの各パーツ説明（プレースホルダ）。</p>
+    <section>
+      <h2>ジュエリーを支えるパーツ</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>チェーン</h3>
+          <p>ジュエリーの土台となるチェーンは、身につける人の動きに寄り添うよう、しなやかでありながら強度のある構造を採用しています。</p>
+        </div>
+        <div class="card">
+          <h3>留め具</h3>
+          <p>開閉のしやすさと、外れにくさを両立した留め具を採用。日常の着脱でも安心してお使いいただける設計です。</p>
+        </div>
+        <div class="card">
+          <h3>石留め</h3>
+          <p>ストーンを美しく輝かせ、しっかりと固定するための留め技法。石の種類やデザインに合わせて、最適な方法を選んでいます。</p>
+        </div>
+        <div class="card">
+          <h3>仕上げ</h3>
+          <p>表面の研磨やメッキ加工にもこだわり、肌触りと輝きの両方を追求しています。細部にまで行き届いた仕上げが、Asiantteの品質を支えています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>品質を支える技術</h2>
+      <p>Asiantteのジュエリーは、熟練の職人が一つひとつ丁寧に仕上げています。素材の特性を理解し、構造の強度とデザイン性のバランスを追求。長く愛用いただけるジュエリーをつくり続けています。</p>
+    </section>
+
+    <section>
+      <h2>お手入れのポイント</h2>
+      <p>チェーンや留め具など、構造上のパーツは特に丁寧な扱いが大切です。ジュエリーの構造を理解して、正しくお手入れすることで、美しさを長く保つことができます。</p>
+      <a href="/care" class="cta-button secondary">ジュエリーのお手入れを見る</a>
+    </section>
+
+    <div class="note">
+      素材や職人技についてもっと知りたい方は、素材とクラフトのページをご覧ください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

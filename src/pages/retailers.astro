@@ -1,10 +1,80 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "販売店の検索 — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>販売店の検索 — Asiantte</title>
+  <meta name="description" content="Asiantteの正規販売店を検索できます。全国の取り扱い店舗や、ジュエリーを実際に手に取ってご覧いただける店舗のご案内。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">FIND A RETAILER</p>
+    <h1>販売店の検索</h1>
+    <p class="lead">Asiantteのジュエリーは、全国の正規販売店でお求めいただけます。お近くの店舗で、実際にジュエリーを手に取ってご覧ください。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>販売店検索（プレースホルダ）。</p>
+    <section>
+      <h2>地域から探す</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>北海道・東北</h3>
+          <ul>
+            <li>札幌三越店（北海道）</li>
+            <li>仙台三越店（宮城県）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>関東</h3>
+          <ul>
+            <li>銀座本店（東京都）</li>
+            <li>日本橋三越本店（東京都）</li>
+            <li>新宿伊勢丹店（東京都）</li>
+            <li>横浜髙島屋店（神奈川県）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>中部・関西</h3>
+          <ul>
+            <li>名古屋栄三越店（愛知県）</li>
+            <li>京都髙島屋店（京都府）</li>
+            <li>大阪うめだ阪急店（大阪府）</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>中国・四国・九州</h3>
+          <ul>
+            <li>広島福屋店（広島県）</li>
+            <li>福岡大丸店（福岡県）</li>
+            <li>鹿児島山形屋店（鹿児島県）</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>店舗での体験</h2>
+      <div class="card">
+        <h3>実際に手に取ってお選びいただけます</h3>
+        <p>正規販売店では、プロのスタッフがお客様の好みやライフスタイルに合わせて、最適なジュエリーをご提案いたします。サイズ直しやアフターサービスのご相談も、店舗でお受けしています。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>オンラインストア</h2>
+      <p>店舗にお越しいただけない場合は、オンラインストアからもご購入いただけます。24時間いつでも、ご自宅でゆっくりとお選びいただけます。</p>
+      <a href="/collection" class="cta-button secondary">コレクションを見る</a>
+    </section>
+
+    <div class="note">
+      最新の取り扱い店舗情報は、随時更新しております。お近くの店舗についてご不明な点があれば、お気軽にお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

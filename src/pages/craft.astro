@@ -1,10 +1,66 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "素材とクラフト — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>素材とクラフト — Asiantte</title>
+  <meta name="description" content="Asiantteの素材へのこだわりとクラフトマンシップをご紹介します。厳選された素材と、熟練の職人の技術が生み出すジュエリー。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">MATERIALS & CRAFTSMANSHIP</p>
+    <h1>素材とクラフト</h1>
+    <p class="lead">Asiantteのジュエリーは、厳選された素材と、熟練の職人の技術によって生み出されています。素材への敬意と、ものづくりへの情熱をご紹介します。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>素材と職人技について（プレースホルダ）。</p>
+    <section>
+      <h2>厳選された素材</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>ゴールド</h3>
+          <p>肌になじみ、長く美しさを保つゴールド。環境に配慮した責任ある方法で調達された素材を使用しています。</p>
+        </div>
+        <div class="card">
+          <h3>シルバー</h3>
+          <p>柔らかな輝きと、時代を超えて愛される美しさを持つシルバー。しなやかでありながら、丈夫な仕上げを施しています。</p>
+        </div>
+        <div class="card">
+          <h3>ストーン</h3>
+          <p>厳選された天然石と、品質の高いキュービックジルコニア。石の持つ個性を最大限に引き出すカットとセッティングを追求しています。</p>
+        </div>
+        <div class="card">
+          <h3>真鍮・合金</h3>
+          <p>軽やかで肌なじみの良い合金素材。日常使いにも安心してお使いいただける、快適な着け心地を実現しています。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>職人の技</h2>
+      <p>Asiantteのジュエリーは、デザインから仕上げまで、熟練の職人が一つひとつ丁寧に手がけています。繊細な石留め、なめらかな研磨、確かな組み立て。すべての工程に、長年の経験と技術が込められています。</p>
+    </section>
+
+    <section>
+      <h2>品質へのこだわり</h2>
+      <p>すべてのジュエリーは、出荷前に厳格な品質チェックを実施しています。石の緩みや表面の仕上げ、留め具の強度まで、確かな品質をお届けするために、細部まで徹底的に確認しています。</p>
+    </section>
+
+    <section>
+      <h2>ジュエリーの構造</h2>
+      <p>素材と職人の技術がどのようにジュエリーに形づくられているのか、構造のページでもご紹介しています。</p>
+      <a href="/anatomy" class="cta-button secondary">ジュエリーの構造を見る</a>
+    </section>
+
+    <div class="note">
+      素材選びやものづくりについて、さらに詳しい情報をお求めの方は、お気軽にお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

@@ -1,10 +1,77 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "アフターサービス — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>アフターサービス — Asiantte</title>
+  <meta name="description" content="Asiantteのアフターサービス。サイズ直し、クリーニング、修理、保証など、長くジュエリーをお楽しみいただくためのサービスをご案内します。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">AFTER-SERVICE</p>
+    <h1>アフターサービス</h1>
+    <p class="lead">Asiantteのジュエリーを、いつまでも美しく。ご購入後も長くお使いいただけるよう、様々なアフターサービスをご用意しています。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>アフターサービスに関するページ（プレースホルダ）。</p>
+    <section>
+      <h2>アフターサービス一覧</h2>
+      <div class="body-2col">
+        <div class="card">
+          <h3>サイズ直し</h3>
+          <p>指輪のサイズ直し、ブレスレットやネックレスの長さ調整を承ります。お客様の指や首元にぴったりと寄り添う、理想のフィット感をご提供します。</p>
+        </div>
+        <div class="card">
+          <h3>クリーニング</h3>
+          <p>専門スタッフによるプロのクリーニングで、ジュエリー本来の輝きを取り戻します。日頃のお手入れでは落としきれない汚れも、丁寧に取り除きます。</p>
+        </div>
+        <div class="card">
+          <h3>修理</h3>
+          <p>破損、変形、石の交換など、ジュエリーの修理を承ります。経験豊富な職人が、大切なジュエリーを丁寧に修復いたします。</p>
+        </div>
+        <div class="card">
+          <h3>メンテナンス</h3>
+          <p>定期的なメンテナンスで、ジュエリーの状態をチェックし、美しさと強度を長く保つお手伝いをいたします。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>サービスをご利用いただくには</h2>
+      <ul class="num-list">
+        <li>お近くの販売店・修理窓口に、お持ちのジュエリーをご持参ください。</li>
+        <li>スタッフがジュエリーの状態を確認し、必要なサービスをご案内いたします。</li>
+        <li>お見積りにご納得いただいたうえで、お預かりいたします。</li>
+        <li>修理・メンテナンス完了後、ご連絡いたします。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>保証について</h2>
+      <p>Asiantteのジュエリーには、ご購入日から一定期間の保証が付属します。保証期間内の自然な不具合については、無償で修理いたします。保証書は大切に保管してください。</p>
+    </section>
+
+    <section>
+      <h2>よくあるご質問</h2>
+      <div class="card">
+        <h3>修理にはどのくらい時間がかかりますか？</h3>
+        <p>修理内容によりますが、通常2〜4週間程度いただいております。複雑な修理の場合は、別途ご案内いたします。</p>
+      </div>
+      <div class="card">
+        <h3>保証書を紛失してしまいました</h3>
+        <p>ご購入時のレシートやご購入店舗の情報をお知らせいただければ、対応を検討いたします。お気軽にご相談ください。</p>
+      </div>
+    </section>
+
+    <div class="note">
+      アフターサービスに関するご質問は、お近くの販売店または修理窓口までお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

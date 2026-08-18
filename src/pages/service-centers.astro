@@ -1,10 +1,68 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "修理窓口を探す — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>修理窓口を探す — Asiantte</title>
+  <meta name="description" content="Asiantteの修理窓口をご案内します。ジュエリーの修理・メンテナンスを受け付ける修理センターや、お近くの取扱店舗での受付方法。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">FIND A SERVICE CENTER</p>
+    <h1>修理窓口を探す</h1>
+    <p class="lead">Asiantteでは、全国の正規販売店および修理センターで、ジュエリーの修理・メンテナンスを受け付けております。お近くの修理窓口をご案内します。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>修理窓口の検索（プレースホルダ）。</p>
+    <section>
+      <h2>修理センター</h2>
+      <div class="card">
+        <h3>Asiantte 修理センター</h3>
+        <p>東京・銀座にある修理センターでは、専門の職人が修理・メンテナンスを承ります。複雑な修理や、石の交換などのご相談はこちらまでお問い合わせください。</p>
+      </div>
+      <div class="card">
+        <h3>オンライン修理受付</h3>
+        <p>オンラインでも修理のご依頼を受け付けております。お問い合わせフォームから修理内容をご連絡いただき、ご案内に従ってお送りください。</p>
+        <a href="/contact" class="cta-button secondary">修理を依頼する</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>正規販売店での受付</h2>
+      <p>全国の正規販売店でも修理の受付を行っております。お持ちのジュエリーを店舗にご持参いただければ、スタッフが状態を確認し、必要な手続きをご案内いたします。</p>
+      <a href="/retailers" class="cta-button secondary">販売店を探す</a>
+    </section>
+
+    <section>
+      <h2>修理の流れ</h2>
+      <ul class="num-list">
+        <li>修理をご希望のジュエリーと保証書をご用意ください。</li>
+        <li>販売店または修理センターにご相談いただき、状態を確認します。</li>
+        <li>お見積りをご提示いたします。ご納得いただいたうえでお預かりします。</li>
+        <li>修理完了後、ご連絡いたします。</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>修理できるもの</h2>
+      <ul>
+        <li>チェーンの切れ・留め具の交換</li>
+        <li>石の緩み・欠け・交換</li>
+        <li>リングのサイズ直し・変形の修正</li>
+        <li>ポリッシュ・再メッキ加工</li>
+        <li>刻印・エングレービング</li>
+      </ul>
+    </section>
+
+    <div class="note">
+      修理のご依頼前に、お手持ちのジュエリーの状態や修理内容についてご不明な点があれば、お気軽にお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

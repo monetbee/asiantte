@@ -153,3 +153,236 @@ hr {
 	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */
 	white-space: nowrap;
 }
+
+/* ===== Asiantte dark-theme content pages (buy, history, etc.) ===== */
+.page-theme {
+	background: #111;
+	color: #f4efe8;
+}
+.page-theme * {
+	box-sizing: border-box;
+}
+.page-theme body {
+	margin: 0;
+	background: #111;
+	color: #f4efe8;
+	font-family: Manrope, "Noto Sans JP", sans-serif;
+}
+.page-theme a {
+	color: inherit;
+}
+.page-theme .page-main {
+	width: 100%;
+	max-width: 1080px;
+	margin: auto;
+	padding: clamp(4rem, 9vw, 8rem) 6vw clamp(4rem, 8vw, 7rem);
+}
+.page-theme .eyebrow {
+	margin: 0 0 1.2rem;
+	color: #b08d57;
+	font-size: 0.68rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+.page-theme h1 {
+	margin: 0 0 2rem;
+	color: #f4efe8;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 500;
+	font-size: clamp(3rem, 7vw, 6rem);
+	line-height: 0.95;
+	letter-spacing: -0.01em;
+}
+.page-theme .lead {
+	max-width: 36rem;
+	margin-bottom: 0;
+	color: #d8d4ce;
+	font-size: 1.08rem;
+	line-height: 1.9;
+}
+.page-theme section {
+	max-width: 34rem;
+	margin: clamp(4rem, 7vw, 6rem) 0 0;
+}
+.page-theme section + section {
+	margin-top: clamp(3rem, 5vw, 4.5rem);
+}
+.page-theme h2 {
+	margin: 0 0 1rem;
+	color: #f4efe8;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 500;
+	font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+	line-height: 1.1;
+}
+.page-theme h3 {
+	margin: 0 0 0.5rem;
+	color: #f4efe8;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 500;
+	font-size: 1.35rem;
+	line-height: 1.2;
+}
+.page-theme section p,
+.page-theme section li,
+.page-theme .page-main p {
+	color: #aaa;
+	line-height: 1.9;
+}
+.page-theme section ul {
+	padding-left: 1.2rem;
+	color: #aaa;
+	line-height: 1.9;
+}
+.page-theme section li {
+	margin: 0.45rem 0;
+}
+.page-theme .cta-button {
+	display: inline-block;
+	margin-top: 2.2rem;
+	padding: 1rem 2.5rem;
+	border: 1px solid #b08d57;
+	background: #b08d57;
+	color: #fff;
+	text-decoration: none;
+	border-radius: 0;
+	font-size: 0.95rem;
+	font-weight: 500;
+	letter-spacing: 0.08em;
+	transition: background 180ms ease, color 180ms ease, opacity 180ms ease;
+}
+.page-theme .cta-button:hover {
+	background: transparent;
+	color: #b08d57;
+}
+.page-theme .cta-button.secondary {
+	background: transparent;
+	color: #b08d57;
+}
+.page-theme .cta-button.secondary:hover {
+	background: #b08d57;
+	color: #111;
+}
+.page-theme .body-2col {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.5rem;
+	align-items: start;
+}
+.page-theme .body-2col section {
+	margin-top: 0;
+}
+.page-theme .card {
+	padding: 2rem;
+	border: 1px solid rgba(176, 141, 87, 0.35);
+	background: rgba(255, 255, 255, 0.02);
+}
+.page-theme .card + .card {
+	margin-top: 1.5rem;
+}
+.page-theme .card h3 {
+	margin-top: 0;
+}
+.page-theme .note {
+	margin-top: 2.5rem;
+	padding: 1.4rem 1.6rem;
+	border-left: 3px solid #b08d57;
+	background: rgba(176, 141, 87, 0.08);
+	color: #cbc5bd;
+	font-size: 0.95rem;
+	line-height: 1.8;
+}
+.page-theme .num-list {
+	list-style: none;
+	padding: 0;
+	counter-reset: step;
+}
+.page-theme .num-list li {
+	position: relative;
+	padding-left: 2.6rem;
+	counter-increment: step;
+}
+.page-theme .num-list li::before {
+	position: absolute;
+	left: 0;
+	top: 0.1rem;
+	width: 1.7rem;
+	height: 1.7rem;
+	display: grid;
+	place-items: center;
+	border: 1px solid rgba(176, 141, 87, 0.6);
+	border-radius: 50%;
+	color: #b08d57;
+	font-size: 0.72rem;
+	font-weight: 600;
+	content: counter(step);
+}
+.page-theme .divider {
+	margin: clamp(3rem, 6vw, 5rem) 0 0;
+	border: 0;
+	border-top: 1px solid rgba(216, 212, 206, 0.12);
+}
+.page-theme .brand-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+	gap: 1rem;
+	list-style: none;
+	padding: 0;
+	margin: 1.5rem 0 0;
+}
+.page-theme .brand-list li {
+	margin: 0;
+	padding: 1.4rem 1.5rem;
+	border: 1px solid rgba(176, 141, 87, 0.25);
+	background: rgba(255, 255, 255, 0.02);
+	color: #d8d4ce;
+	line-height: 1.7;
+	font-size: 0.95rem;
+}
+.page-theme .brand-list strong {
+	display: block;
+	margin-bottom: 0.35rem;
+	color: #f4efe8;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 500;
+	font-size: 1.15rem;
+	letter-spacing: 0.02em;
+}
+.page-theme .tags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.6rem;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.page-theme .tags li {
+	margin: 0;
+	padding: 0.45rem 0.9rem;
+	border: 1px solid rgba(176, 141, 87, 0.45);
+	border-radius: 999px;
+	color: #d8d4ce;
+	font-size: 0.78rem;
+	letter-spacing: 0.06em;
+	line-height: 1.4;
+}
+@media (max-width: 820px) {
+	.page-theme .body-2col {
+		grid-template-columns: 1fr;
+		gap: 1.5rem;
+	}
+	.page-theme .brand-list {
+		grid-template-columns: 1fr;
+	}
+}
+@media (max-width: 600px) {
+	.page-theme .page-main {
+		padding: 4rem 7vw 4rem;
+	}
+	.page-theme h1 {
+		font-size: clamp(2.5rem, 12vw, 4rem);
+	}
+	.page-theme section {
+		max-width: 100%;
+	}
+}

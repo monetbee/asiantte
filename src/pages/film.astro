@@ -1,10 +1,115 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "ブランドフィルム — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>ブランドフィルム — Asiantte</title>
+  <meta name="description" content="Asiantteのブランドフィルム。アジアの美しさを讃える、映像で紡ぐAsiantteの世界観をご覧ください。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">BRAND FILM</p>
+    <h1>ブランドフィルム</h1>
+    <p class="lead">映像で紡ぐ、Asiantteの世界観。アジアの美しさ、ものづくりの瞬間、そしてジュエリーが生み出す物語を、ブランドフィルムでお届けします。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>ブランドフィルムの紹介（プレースホルダ）。</p>
+    <section>
+      <h2>Our Film</h2>
+      <div class="brand-film">
+        <div class="film-card">
+          <div class="film-placeholder" aria-hidden="true">
+            <span>ASIANTTE</span>
+          </div>
+          <div class="film-content">
+            <h3>Asian Beauty, Unapologetically.</h3>
+            <p>Asiantteのフィロソフィーを描いたブランドフィルム。アジアに息づく多様な美しさを、静かに、力強く描き出します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Craft Film</h2>
+      <div class="film-card">
+        <div class="film-placeholder" aria-hidden="true">
+          <span>THE CRAFT</span>
+        </div>
+        <div class="film-content">
+          <h3>ものづくりの現場から</h3>
+          <p>熟練の職人がジュエリーを仕上げていく様子を追った、クラフトフィルム。素材と技術が融合する、ものづくりの瞬間をご覧ください。</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Collection Film</h2>
+      <div class="film-card">
+        <div class="film-placeholder" aria-hidden="true">
+          <span>THE COLLECTION</span>
+        </div>
+        <div class="film-content">
+          <h3>コレクションの世界</h3>
+          <p>コレクションのテーマやデザインの背景を描いたフィルム。ジュエリーが持つ、静かな存在感を映像で表現します。</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="note">
+      ブランドフィルムは順次公開予定です。最新の情報は、New Arrivalsページや公式SNSにてお知らせします。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>
+
+<style>
+  .brand-film {
+    display: grid;
+    gap: 2rem;
+  }
+  .film-card {
+    border: 1px solid rgba(176, 141, 87, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  .film-card + .film-card {
+    margin-top: 1.5rem;
+  }
+  .film-placeholder {
+    display: grid;
+    place-items: center;
+    height: 22rem;
+    background:
+      linear-gradient(135deg, rgba(176, 141, 87, 0.15), rgba(17, 17, 17, 0.4)),
+      #1a1714;
+    color: rgba(244, 239, 232, 0.7);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.35em;
+    border-bottom: 1px solid rgba(176, 141, 87, 0.25);
+  }
+  .film-content {
+    padding: 2rem;
+  }
+  .film-content h3 {
+    margin: 0 0 0.5rem;
+  }
+  .film-content p {
+    margin: 0;
+    color: #aaa;
+    line-height: 1.9;
+  }
+  @media (max-width: 600px) {
+    .film-placeholder {
+      height: 14rem;
+    }
+    .film-content {
+      padding: 1.4rem;
+    }
+  }
+</style>

@@ -1,5 +1,50 @@
 ---
+import "../styles/global.css";
 import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
 ---
-<!doctype html><html lang="ja"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><title>About — Asiantte</title><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet"/></head><body><SiteMenu /><main><p class="eyebrow">ABOUT ASIANTTE</p><h1>Asian Beauty,<br/>Unapologetically.</h1><p class="lead">Asiantteは、アジアに息づく美しさと、身につける人の個性を讃えるジュエリーブランドです。</p><section><h2>自分の美しさを、自分で選ぶ。</h2><p>静かな存在感。揺るぎない個性。日常に寄り添いながら、あなた自身の美しさを引き立てるジュエリーを届けます。</p></section></main><footer>Asiantte <span>Asian Beauty, Unapologetically.</span></footer></body></html><style>:global(*){box-sizing:border-box}:global(body){margin:0;background:#111;color:#fff;font-family:Manrope,"Noto Sans JP",sans-serif}header{display:flex;justify-content:space-between;padding:2rem 6vw}header a{color:inherit;font-size:.7rem;letter-spacing:.1em;text-decoration:none}.logo{font-family:"Cormorant Garamond",serif;font-size:1.6rem}main{max-width:1050px;margin:auto;padding:12vw 6vw}.eyebrow{color:#b08d57;font-size:.65rem;letter-spacing:.16em}h1{margin:1rem 0 2rem;font:500 clamp(4rem,10vw,9rem) "Cormorant Garamond",serif;line-height:.82}.lead{max-width:34rem;color:#ddd;font-size:1.1rem;line-height:1.9}section{max-width:30rem;margin:10rem 0 3rem}h2{font:500 2.5rem "Cormorant Garamond",serif}section p{color:#aaa;line-height:1.9}footer{display:flex;justify-content:space-between;padding:2rem 6vw;border-top:1px solid #ffffff26;font-size:.7rem}footer span{color:#888}@media(max-width:600px){footer{display:block}footer span{display:block;margin-top:.5rem}}
-</style>
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>Asiantteについて — Asiantte</title>
+  <meta name="description" content="Asiantteは、アジアに息づく美しさと、身につける人の個性を讃えるジュエリーブランドです。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">ABOUT ASIANTTE</p>
+    <h1>Asiantteについて</h1>
+    <p class="lead">Asian Beauty, Unapologetically. Asiantteは、アジアに息づく美しさと、身につける人の個性を讃えるジュエリーブランドです。</p>
+
+    <section>
+      <h2>自分の美しさを、自分で選ぶ。</h2>
+      <p>静かな存在感。揺るぎない個性。日常に寄り添いながら、あなた自身の美しさを引き立てるジュエリーを届けます。Asiantteは、すべてのアジアの美しさを讃える、手の届くラグジュアリージュエリーブランドです。</p>
+    </section>
+
+    <section>
+      <h2>私たちの想い</h2>
+      <p>一人ひとりの美しさは、それぞれ違う。Asiantteは、画一的な美の基準ではなく、身につける人それぞれの魅力を引き立てるデザインを追求します。素材への敬意、職人の技術、そしてお客様との信頼関係。私たちが大切にするすべてが、ジュエリーに込められています。</p>
+    </section>
+
+    <section>
+      <h2>ブランドの歩み</h2>
+      <p>Asiantteの歴史は、アジアの美しさへの敬意から始まりました。伝統と現代を紡ぎ、世代を超えて愛されるジュエリーづくりを続けています。</p>
+      <a href="/history" class="cta-button secondary">ブランドの歴史を見る</a>
+    </section>
+
+    <section>
+      <h2>ものづくりへの姿勢</h2>
+      <p>すべてのジュエリーは、熟練の職人の手によって丁寧に仕上げられています。厳選された素材と、確かな技術。サステナビリティへの配慮も、私たちのものづくりに欠かせない大切な価値観です。</p>
+      <a href="/craft" class="cta-button secondary">素材とクラフトを見る</a>
+    </section>
+
+    <div class="note">
+      Asiantteの世界観をもっと知りたい方は、ブランドフィルムや歴史のページもご覧ください。
+    </div>
+  </main>
+  <Footer />
+</body>
+</html>

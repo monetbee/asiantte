@@ -1,10 +1,69 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "購入とアフターサービス — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>購入とアフターサービス — Asiantte</title>
+  <meta name="description" content="Asiantteの購入方法とアフターサービスのご案内。ご購入からお手入れ、修理まで、ジュエリーとの長いお付き合いをサポートします。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">PURCHASE & AFTER-SERVICE</p>
+    <h1>購入とアフターサービス</h1>
+    <p class="lead">Asiantteのジュエリーは、ご購入後も長くお使いいただけるよう、充実したアフターサービスをご用意しています。購入からお手入れ、修理まで、ジュエリーとの長いお付き合いをサポートします。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>購入とアフターサービスの情報（プレースホルダ）。</p>
+    <section>
+      <h2>ご購入のご案内</h2>
+      <div class="card">
+        <h3>店舗でのご購入</h3>
+        <p>全国の正規販売店にて、実際にジュエリーを手に取ってご覧いただけます。プロのスタッフがお客様の好みやライフスタイルに合わせて、最適なジュエリーをご提案いたします。</p>
+        <a href="/retailers" class="cta-button secondary">販売店を探す</a>
+      </div>
+      <div class="card">
+        <h3>オンラインでのご購入</h3>
+        <p>オンラインストアでは、ご自宅にいながらAsiantteのジュエリーをお選びいただけます。ご不明な点はカスタマーサービスが丁寧にお答えいたします。</p>
+      </div>
+      <div class="card">
+        <h3>認定中古ジュエリー</h3>
+        <p>品質検査を通過した認定中古ジュエリーもご購入いただけます。新しい物語を紡ぐ、サステナブルな選択です。</p>
+        <a href="/certified-preowned" class="cta-button secondary">認定中古ジュエリーを見る</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>アフターサービスのご案内</h2>
+      <div class="card">
+        <h3>サイズ直し</h3>
+        <p>指輪のサイズ直しやブレスレットの長さ調整など、お客様にぴったりのフィット感をご提供いたします。</p>
+      </div>
+      <div class="card">
+        <h3>クリーニングとメンテナンス</h3>
+        <p>ジュエリーをいつまでも美しく保つための、専門スタッフによるクリーニングとメンテナンスサービスです。</p>
+        <a href="/care" class="cta-button secondary">ジュエリーのお手入れを見る</a>
+      </div>
+      <div class="card">
+        <h3>修理サービス</h3>
+        <p>破損や部品の交換など、ジュエリーの修理を承ります。お気軽に修理窓口までご相談ください。</p>
+        <a href="/service-centers" class="cta-button secondary">修理窓口を探す</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>保証について</h2>
+      <p>Asiantteのジュエリーには、ご購入日から一定期間の保証が付属します。保証期間内の自然な不具合については、無償で修理いたします。保証書は大切に保管してください。</p>
+    </section>
+
+    <div class="note">
+      アフターサービスに関するご質問は、お近くの販売店またはカスタマーサービスまでお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>

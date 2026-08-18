@@ -1,10 +1,63 @@
-import BaseLayout from '../layouts/BaseLayout.astro';
-const title = "認定中古ジュエリー — Asiantte";
 ---
+import "../styles/global.css";
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html class="page-theme" lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>認定中古ジュエリー — Asiantte</title>
+  <meta name="description" content="Asiantte認定中古ジュエリー。正規の品質検査を通過した信頼できる中古ジュエリーを、新しい物語とともにお届けします。" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main class="page-main">
+    <p class="eyebrow">CERTIFIED PRE-OWNED</p>
+    <h1>認定中古ジュエリー</h1>
+    <p class="lead">Asiantte認定中古ジュエリーは、正規の品質検査とメンテナンスを経て、再びお客様のもとへ旅立つジュエリーです。物語を受け継ぎ、サステナブルな選択を。</p>
 
-<BaseLayout title={title}>
-  <main>
-    <h1>{title}</h1>
-    <p>認定中古ジュエリーの紹介ページ（プレースホルダ）。</p>
+    <section>
+      <h2>認定プログラムとは</h2>
+      <p>Asiantteでは、お客様からお預かりした中古ジュエリーを専門スタッフが丁寧に検査・メンテナンスし、認定書とともに販売しています。すべての認定中古ジュエリーは、新品同様の品質基準を満たしています。</p>
+    </section>
+
+    <section>
+      <h2>品質検査のポイント</h2>
+      <ul>
+        <li>プロのジュエラーによる徹底した状態チェック</li>
+        <li>石の緩みや欠け、メッキの状態確認</li>
+        <li>クリーニングと研磨による仕上げ</li>
+        <li>必要に応じた部品の交換・修理</li>
+        <li>正規の認定書とケースの付属</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>認定中古を取り扱う理由</h2>
+      <p>ジュエリーは長く愛用されるほど、その価値を深めていきます。認定中古ジュエリーの普及を通じて、ものづくりと消費の循環をつくり、持続可能なラグジュアリーを実現します。</p>
+      <a href="/sustainability" class="cta-button secondary">持続可能性への取り組みを見る</a>
+    </section>
+
+    <section>
+      <h2>ご購入時の保証</h2>
+      <div class="card">
+        <h3>認定中古はこんな方におすすめ</h3>
+        <p>ジュエリーの物語を受け継ぎたい方、少しお求めやすい価格でAsiantteの品質を体験したい方、環境に配慮した選択をしたい方。認定中古ジュエリーは、大切なジュエリーに新しい物語を紡ぐ、もうひとつの選び方です。</p>
+      </div>
+      <div class="card">
+        <h3>品質への責任</h3>
+        <p>認定中古ジュエリーは、購入後もアフターサービスをご利用いただけます。サイズ直しやお手入れなど、安心してお使いいただけるようサポートいたします。</p>
+        <a href="/after-service" class="cta-button secondary">アフターサービスを見る</a>
+      </div>
+    </section>
+
+    <div class="note">
+      現在取り扱い中の認定中古ジュエリーは、店舗にてご案内しております。お近くの販売店へお問い合わせください。
+    </div>
   </main>
-</BaseLayout>
+  <Footer />
+</body>
+</html>
