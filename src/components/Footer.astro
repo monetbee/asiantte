@@ -16,7 +16,7 @@ const today = new Date();
 		</div>
 
 		<div class="footer-col">
-			<h4>Pandoraジュエリー</h4>
+			<h4>Asiantteジュエリー</h4>
 			<ul>
 				<li><a href="/new-arrivals">新作</a></li>
 				<li><a href="/categories/bracelets">ブレスレット</a></li>
@@ -248,3 +248,11 @@ const today = new Date();
 		line-height: 1.6;
 	}
 	@media (max-width: 900px) {
+		.footer-top { grid-template-columns: repeat(2, 1fr); }
+		.footer-mid { flex-direction: column; }
+	}
+	@media (max-width: 520px) {
+		.footer-top { grid-template-columns: 1fr; }
+		.cta-links { flex-direction: column; }
+	}
+</style>
