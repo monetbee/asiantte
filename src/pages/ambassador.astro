@@ -1,0 +1,107 @@
+---
+import SiteMenu from "../components/SiteMenu.astro";
+import Footer from "../components/Footer.astro";
+---
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>アンバサダーに応募 — Asiantte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <SiteMenu />
+  <main>
+    <p class="eyebrow">AMBASSADOR PROGRAM</p>
+    <h1>Asiantteアンバサダー<br/>になりませんか？</h1>
+    <p class="lead">私たちのブランドを共に広め、コミュニティを成長させる仲間を募集しています。</p>
+
+    <section>
+      <h2>アンバサダープログラムとは？</h2>
+      <p>Asiantteの製品やビジョンに共感し、その魅力を積極的に発信してくださる公式パートナーを募集するプログラムです。アンバサダーの皆様には、私たちの活動の中心メンバーとして、ブランドの成長をサポートしていただきます。</p>
+    </section>
+
+    <section>
+      <h2>アンバサダーの特典</h2>
+      <ul>
+        <li>新製品の先行提供</li>
+        <li>限定イベントへのご招待</li>
+        <li>活動に応じた特別な報酬</li>
+        <li>公式SNSやウェブサイトでのご紹介</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>こんな方をお待ちしています</h2>
+      <ul>
+        <li>Asiantteのブランドが好きな方</li>
+        <li>SNSでの発信が得意な方（Instagram, X, TikTokなど）</li>
+        <li>新しいチャレンジにワクワクする方</li>
+      </ul>
+    </section>
+
+    <a href="/contact" class="cta-button">今すぐ応募する</a>
+  </main>
+  <Footer />
+</body>
+</html>
+<style>
+  :global(*) { box-sizing: border-box; }
+  :global(body) {
+    margin: 0;
+    background: #111;
+    color: #fff;
+    font-family: Manrope, "Noto Sans JP", sans-serif;
+  }
+  main {
+    max-width: 1050px;
+    margin: auto;
+    padding: 8vw 6vw;
+  }
+  .eyebrow {
+    color: #b08d57;
+    font-size: .65rem;
+    letter-spacing: .16em;
+  }
+  h1 {
+    margin: 1rem 0 2rem;
+    font: 500 clamp(3rem, 7vw, 6rem) "Cormorant Garamond", serif;
+    line-height: .9;
+  }
+  .lead {
+    max-width: 34rem;
+    color: #ddd;
+    font-size: 1.1rem;
+    line-height: 1.9;
+  }
+  section {
+    max-width: 30rem;
+    margin: 6rem 0 3rem;
+  }
+  h2 {
+    font: 500 2.5rem "Cormorant Garamond", serif;
+  }
+  section p, section li {
+    color: #aaa;
+    line-height: 1.9;
+  }
+  section ul {
+    padding-left: 1.2rem;
+  }
+  .cta-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 1rem 2.5rem;
+    background: #b08d57;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    letter-spacing: .08em;
+    transition: opacity .2s;
+  }
+  .cta-button:hover {
+    opacity: .8;
+  }
+</style>
