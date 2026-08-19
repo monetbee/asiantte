@@ -1,0 +1,131 @@
+---
+import Layout from './Layout.astro';
+---
+
+<Layout title="よくあるご質問 | Asiantte">
+	<main class="page-main">
+		<p class="eyebrow">FAQ</p>
+		<h1>よくあるご質問</h1>
+		<p class="lead">Asiantteのご利用に関するよくあるご質問をまとめました。お探しの情報が見つからない場合は、ヘルプとサポートのページをご覧ください。</p>
+
+		<section class="faq-category">
+			<h2>注文と配送</h2>
+			<div class="faq-item">
+				<h3>ご注文から発送までどのくらいかかりますか？</h3>
+				<p>ご注文いただいた商品は、通常2〜3営業日以内に発送されます。配送状況は、発送完了メールに記載された追跡番号でご確認いただけます。</p>
+			</div>
+			<div class="faq-item">
+				<h3>配送料はかかりますか？</h3>
+				<p>国内配送は、ご注文金額が10,000円以上の場合無料となります。10,000円未満の場合は、全国一律550円の配送料をいただいております。</p>
+			</div>
+			<div class="faq-item">
+				<h3>海外への発送は可能ですか？</h3>
+				<p>はい、主要国への海外発送に対応しております。配送料とお届け日数は、お届け先の国・地域によって異なりますので、ご注文時にご確認ください。</p>
+			</div>
+		</section>
+
+		<section class="faq-category">
+			<h2>返品・交換</h2>
+			<div class="faq-item">
+				<h3>返品・交換は可能ですか？</h3>
+				<p>未使用品に限り、商品到着後14日以内の返品・交換を承ります。商品に不備があった場合は、到着後7日以内にカスタマーサポートまでご連絡ください。</p>
+			</div>
+			<div class="faq-item">
+				<h3>返品の際の送料はどちらが負担しますか？</h3>
+				<p>お客様都合による返品の場合はお客様に、商品に不備があった場合の返品は当社が送料を負担いたします。</p>
+			</div>
+		</section>
+
+		<section class="faq-category">
+			<h2>商品のお手入れ</h2>
+			<div class="faq-item">
+				<h3>ジュエリーのお手入れ方法を教えてください。</h3>
+				<p>ジュエリーの輝きを保つため、定期的なお手入れをお勧めします。柔らかい布で優しく拭き、専用のクリーナーをご使用ください。詳細は「ジュエリーのお手入れ」ガイドをご覧ください。</p>
+			</div>
+			<div class="faq-item">
+				<h3>お風呂やプールで着用しても大丈夫ですか？</h3>
+				<p>温泉やプールの塩素・硫黄成分はジュエリーにダメージを与える可能性があります。入浴時や水泳時は外していただくことをお勧めします。</p>
+			</div>
+		</section>
+
+		<section class="faq-category">
+			<h2>ギフト</h2>
+			<div class="faq-item">
+				<h3>ギフトラッピングは可能ですか？</h3>
+				<p>はい、すべての商品にAsiantteのオリジナルギフトラッピングを無料で提供しております。ご注文時にギフトオプションを選択してください。</p>
+			</div>
+			<div class="faq-item">
+				<h3>ギフトカードを同梱できますか？</h3>
+				<p>ご注文時にメッセージをご入力いただくと、Asiantteのギフトカードに印字して同梱いたします。ご希望の場合は、カート画面の「ギフトオプション」からご指定ください。</p>
+			</div>
+		</section>
+
+		<div class="note">
+			<p>上記で解決しない場合は、<a href="/support/help">ヘルプとサポート</a>のページをご覧いただくか、<a href="/contact">お問い合わせフォーム</a>よりご連絡ください。</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.faq-category {
+		max-width: 42rem;
+	}
+	.faq-category h2 {
+		display: flex;
+		align-items: center;
+		gap: 0.8rem;
+		margin-bottom: 1.5rem;
+	}
+	.faq-category h2::before {
+		content: "";
+		width: 2.2rem;
+		height: 1px;
+		background: #b08d57;
+		flex-shrink: 0;
+	}
+	.faq-item {
+		padding: 1.6rem 1.8rem;
+		border: 1px solid rgba(176, 141, 87, 0.25);
+		background: rgba(255, 255, 255, 0.02);
+	}
+	.faq-item + .faq-item {
+		margin-top: 1rem;
+	}
+	.faq-item h3 {
+		position: relative;
+		padding-left: 1.6rem;
+		margin-bottom: 0.6rem;
+	}
+	.faq-item h3::before {
+		content: "Q";
+		position: absolute;
+		left: 0;
+		top: 0.1rem;
+		color: #b08d57;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 1.1rem;
+		font-weight: 600;
+	}
+	.faq-item p {
+		margin: 0;
+		padding-left: 1.6rem;
+		color: #aaa;
+		line-height: 1.9;
+	}
+	.faq-item p::before {
+		content: "A";
+		display: inline-block;
+		width: 1.6rem;
+		margin-left: -1.6rem;
+		color: #b08d57;
+		font-family: "Cormorant Garamond", serif;
+		font-weight: 600;
+	}
+	.note a {
+		color: #b08d57;
+		text-decoration: underline;
+	}
+	.note a:hover {
+		color: #d8b47f;
+	}
+</style>

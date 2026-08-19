@@ -1,0 +1,99 @@
+---
+import Layout from './Layout.astro';
+---
+
+<Layout title="アクセシビリティ | Asiantte">
+	<main class="page-main">
+		<p class="eyebrow">Accessibility</p>
+		<h1>アクセシビリティ</h1>
+		<p class="lead">Asiantteは、すべてのユーザーが当社のウェブサイトにアクセスし、快適にご利用いただけるよう努めています。ウェブコンテンツアクセシビリティガイドライン（WCAG）2.1のレベルAA基準に準拠することを目標としています。</p>
+
+		<section>
+			<h2>私たちの取り組み</h2>
+			<p>Asiantteは、アクセシビリティをデザインと開発の重要な原則として捉えています。サイトの継続的な評価と改善を通じて、すべてのユーザーに一貫したアクセス体験を提供します。</p>
+			<ul>
+				<li>ウェブコンテンツアクセシビリティガイドライン（WCAG）2.1レベルAAへの準拠</li>
+				<li>スクリーンリーダーとの互換性の確保（WAI-ARIAの適切な使用）</li>
+				<li>キーボードのみでの操作への対応</li>
+				<li>十分なコントラスト比の維持</li>
+				<li>フォーム入力のラベル付けとエラー表示の明確化</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>サポートされている機能</h2>
+			<div class="feature-grid">
+				<div class="feature-item">
+					<h3>キーボード操作</h3>
+					<p>サイト内のすべての機能はキーボードのみで操作できます。Tabキーで移動し、EnterキーやSpaceキーで選択が可能です。</p>
+				</div>
+				<div class="feature-item">
+					<h3>スクリーンリーダー対応</h3>
+					<p>画像には代替テキストを、フォームには適切なラベルを提供し、スクリーンリーダーで快適にご利用いただけます。</p>
+				</div>
+				<div class="feature-item">
+					<h3>カラーバリエーション</h3>
+					<p>テキストと背景のコントラスト比はWCAG 2.1の基準を満たすよう設計されています。</p>
+				</div>
+				<div class="feature-item">
+					<h3>テキストの拡大・縮小</h3>
+					<p>ブラウザのズーム機能によるテキスト拡大にも対応し、レイアウトが崩れないよう開発しています。</p>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h2>サードパーティコンテンツ</h2>
+			<p>当サイトには、お支払いサービスなどサードパーティが提供するコンテンツやサービスが含まれる場合があります。これらのサービスは、各提供者のアクセシビリティ方針に従っています。</p>
+		</section>
+
+		<section>
+			<h2>フィードバック</h2>
+			<p>ウェブサイトの利用において問題が発生した場合、またはアクセシビリティに関するご意見がございましたら、お手数ですがカスタマーサポートまでご連絡ください。皆様からのフィードバックを歓迎いたします。</p>
+			<a href="/contact" class="cta-button">お問い合わせフォームへ</a>
+		</section>
+
+		<div class="note">
+			<p>アクセシビリティの対応状況につきましては、継続的に改善を進めております。ご不便をおかけする場合は、可能な限り迅速にサポートいたします。</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.feature-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1.2rem;
+		max-width: 44rem;
+	}
+	.feature-item {
+		padding: 1.6rem 1.6rem;
+		border: 1px solid rgba(176, 141, 87, 0.25);
+		background: rgba(255, 255, 255, 0.02);
+	}
+	.feature-item h3 {
+		margin-bottom: 0.6rem;
+	}
+	.feature-item p {
+		margin: 0;
+		font-size: 0.95rem;
+	}
+	section a {
+		color: #b08d57;
+	}
+	section a:hover {
+		color: #d8b47f;
+	}
+	.note a {
+		color: #b08d57;
+		text-decoration: underline;
+	}
+	.note a:hover {
+		color: #d8b47f;
+	}
+	@media (max-width: 700px) {
+		.feature-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

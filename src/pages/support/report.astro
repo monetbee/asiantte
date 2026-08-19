@@ -1,0 +1,150 @@
+---
+import Layout from './Layout.astro';
+---
+
+<Layout title="報告書の提出 | Asiantte">
+	<main class="page-main">
+		<p class="eyebrow">Report</p>
+		<h1>報告書の提出</h1>
+		<p class="lead">ウェブサイトの問題、ご注文に関する問題、またはその他のご意見がございましたら、以下のフォームよりご報告ください。ご入力いただいた内容は、担当チームにて確認し、対応いたします。</p>
+
+		<form class="report-form" id="report-form">
+			<div class="form-group">
+				<label for="category">報告カテゴリー</label>
+				<select id="category" name="category" required>
+					<option value="">選択してください</option>
+					<option value="website">ウェブサイトの問題</option>
+					<option value="order">ご注文に関する問題</option>
+					<option value="product">商品に関する問題</option>
+					<option value="delivery">配送に関する問題</option>
+					<option value="other">その他</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label for="name">お名前</label>
+				<input type="text" id="name" name="name" required autocomplete="name" />
+			</div>
+
+			<div class="form-group">
+				<label for="email">メールアドレス</label>
+				<input type="email" id="email" name="email" required autocomplete="email" />
+			</div>
+
+			<div class="form-group">
+				<label for="order-number">注文番号（任意）</label>
+				<input type="text" id="order-number" name="order-number" autocomplete="off" />
+			</div>
+
+			<div class="form-group">
+				<label for="subject">件名</label>
+				<input type="text" id="subject" name="subject" required />
+			</div>
+
+			<div class="form-group">
+				<label for="description">内容</label>
+				<textarea id="description" name="description" rows="8" required placeholder="問題の詳細、発生状況などを具体的にご記入ください"></textarea>
+			</div>
+
+			<div class="form-group checkbox-group">
+				<input type="checkbox" id="privacy" name="privacy" required />
+				<label for="privacy"><a href="/contact">プライバシーポリシー</a>に同意する</label>
+			</div>
+
+			<button type="submit" class="cta-button">送信</button>
+		</form>
+
+		<div class="note">
+			<p>報告書の提出後、通常2〜3営業日以内にご入力いただいたメールアドレスへご連絡いたします。緊急の場合は、<a href="/contact">お問い合わせフォーム</a>またはお電話（0120-000-000）にてご連絡ください。</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.report-form {
+		max-width: 36rem;
+		margin-top: clamp(2.5rem, 5vw, 4rem);
+		display: flex;
+		flex-direction: column;
+		gap: 1.4rem;
+	}
+	.form-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.form-group label {
+		color: #d8d4ce;
+		font-size: 0.9rem;
+		font-weight: 500;
+		letter-spacing: 0.04em;
+	}
+	.form-group input,
+	.form-group select,
+	.form-group textarea {
+		padding: 0.9rem 1rem;
+		border: 1px solid rgba(176, 141, 87, 0.3);
+		border-radius: 0;
+		background: rgba(255, 255, 255, 0.03);
+		color: #f4efe8;
+		font-family: inherit;
+		font-size: 1rem;
+		line-height: 1.6;
+		transition: border-color 200ms ease, background 200ms ease;
+	}
+	.form-group input:focus,
+	.form-group select:focus,
+	.form-group textarea:focus {
+		outline: none;
+		border-color: #b08d57;
+		background: rgba(176, 141, 87, 0.06);
+	}
+	.form-group input::placeholder,
+	.form-group textarea::placeholder {
+		color: rgba(216, 212, 206, 0.4);
+	}
+	.form-group select {
+		appearance: none;
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23b08d57' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 1rem center;
+		padding-right: 2.5rem;
+	}
+	.form-group select option {
+		background: #111;
+		color: #f4efe8;
+	}
+	.checkbox-group {
+		flex-direction: row;
+		align-items: center;
+		gap: 0.6rem;
+	}
+	.checkbox-group input[type="checkbox"] {
+		width: 1.1rem;
+		height: 1.1rem;
+		accent-color: #b08d57;
+	}
+	.checkbox-group label {
+		font-size: 0.85rem;
+		font-weight: 400;
+	}
+	.checkbox-group a {
+		color: #b08d57;
+		text-decoration: underline;
+	}
+	.checkbox-group a:hover {
+		color: #d8b47f;
+	}
+	.report-form .cta-button {
+		align-self: flex-start;
+		border: 1px solid #b08d57;
+		cursor: pointer;
+	}
+	.note a {
+		color: #b08d57;
+		text-decoration: underline;
+	}
+	.note a:hover {
+		color: #d8b47f;
+	}
+</style>

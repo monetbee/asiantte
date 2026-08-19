@@ -1,0 +1,139 @@
+---
+import Layout from './Layout.astro';
+---
+
+<Layout title="ヘルプとサポート | Asiantte">
+	<main class="page-main">
+		<p class="eyebrow">Help Center</p>
+		<h1>ヘルプとサポート</h1>
+		<p class="lead">Asiantteをご利用いただきありがとうございます。お困りのことがございましたら、以下のカテゴリーからお探しください。ご不明な点はカスタマーサービスまでお気軽にご連絡ください。</p>
+
+		<div class="help-grid">
+			<a href="/support/faq" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<circle cx="12" cy="12" r="10"/>
+						<path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+						<line x1="12" y1="17" x2="12.01" y2="17"/>
+					</svg>
+				</span>
+				<h3>よくあるご質問</h3>
+				<p>注文・配送・返品など、よくあるご質問への回答をまとめています。</p>
+			</a>
+
+			<a href="/support/user-guide" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+						<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+					</svg>
+				</span>
+				<h3>ユーザーガイド</h3>
+				<p>商品の探し方、ご注文方法、アカウント設定などを解説します。</p>
+			</a>
+
+			<a href="/purchase-service" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+						<polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+						<line x1="12" y1="22.08" x2="12" y2="12"/>
+					</svg>
+				</span>
+				<h3>購入とアフターサービス</h3>
+				<p>お支払い方法、配送、返品・交換などの購入サービスについて。</p>
+			</a>
+
+			<a href="/care" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+					</svg>
+				</span>
+				<h3>ジュエリーのお手入れ</h3>
+				<p>ジュエリーの輝きを長く保つためのお手入れ方法をご紹介します。</p>
+			</a>
+
+			<a href="/service-centers" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+					</svg>
+				</span>
+				<h3>修理について</h3>
+				<p>修理・メンテナンスが必要な場合のご案内とサービスセンターのご紹介。</p>
+			</a>
+
+			<a href="/support/report" class="help-card">
+				<span class="help-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+						<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+						<line x1="12" y1="9" x2="12" y2="13"/>
+						<line x1="12" y1="17" x2="12.01" y2="17"/>
+					</svg>
+				</span>
+				<h3>問題の報告</h3>
+				<p>ウェブサイトやご注文に関する問題を報告いただけます。</p>
+			</a>
+		</div>
+
+		<div class="note">
+			<p>上記のカテゴリーで解決しない場合は、<a href="/contact">お問い合わせフォーム</a>よりカスタマーサービスまでご連絡ください。営業時間内（10:00〜18:00）にご対応いたします。</p>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	.help-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+		gap: 1.2rem;
+		margin-top: clamp(2.5rem, 5vw, 4rem);
+		max-width: 60rem;
+	}
+	.help-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.6rem;
+		padding: 2rem 1.8rem;
+		border: 1px solid rgba(176, 141, 87, 0.25);
+		background: rgba(255, 255, 255, 0.02);
+		text-decoration: none;
+		transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+	}
+	.help-card:hover {
+		border-color: rgba(176, 141, 87, 0.6);
+		background: rgba(176, 141, 87, 0.05);
+		transform: translateY(-2px);
+	}
+	.help-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 3.2rem;
+		height: 3.2rem;
+		margin-bottom: 0.4rem;
+		border: 1px solid rgba(176, 141, 87, 0.45);
+		border-radius: 50%;
+		color: #b08d57;
+	}
+	.help-card h3 {
+		margin: 0;
+		color: #f4efe8;
+		font-family: "Cormorant Garamond", serif;
+		font-size: 1.35rem;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+	}
+	.help-card p {
+		margin: 0;
+		color: #aaa;
+		font-size: 0.95rem;
+		line-height: 1.8;
+	}
+	@media (max-width: 600px) {
+		.help-grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

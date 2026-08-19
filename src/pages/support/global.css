@@ -1,0 +1,68 @@
+		max-width: 100%;
+	}
+}
+
+/* ===== Asiantte Support Pages ===== */
+.support-page-main {
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+	padding: clamp(2rem, 5vw, 4rem) 6vw clamp(4rem, 8vw, 7rem);
+}
+
+.support-page-main h1 {
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 500;
+	font-size: clamp(2.5rem, 6vw, 4rem);
+	color: #f4efe8;
+	margin-bottom: 2rem;
+}
+
+.support-page-main p {
+	color: #aaa;
+	line-height: 1.9;
+}
+
+.faq-section .faq-item {
+	margin-bottom: 2rem;
+	padding-bottom: 1.5rem;
+	border-bottom: 1px solid rgba(216, 212, 206, 0.12);
+}
+
+.faq-section .faq-item:last-child {
+	border-bottom: none;
+}
+
+.faq-section h3 {
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 600;
+	font-size: 1.5rem;
+	color: #b08d57;
+	margin-bottom: 0.5rem;
+}
+
+.support-links {
+	list-style: none;
+	padding: 0;
+	margin: 2rem 0;
+}
+
+.support-links li {
+	margin-bottom: 1rem;
+}
+
+.support-links a {
+	display: block;
+	padding: 1rem;
+	border: 1px solid rgba(176, 141, 87, 0.35);
+	background: rgba(255, 255, 255, 0.02);
+	text-decoration: none;
+	color: #d8d4ce;
+	transition: background 180ms ease, color 180ms ease;
+}
+
+.support-links a:hover {
+	background: rgba(176, 141, 87, 0.1);
+	color: #f4efe8;
+}
+
