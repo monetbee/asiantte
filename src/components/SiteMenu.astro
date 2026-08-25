@@ -1,15 +1,23 @@
 <header class="site-header">
   <a href="/" class="wordmark">Asiantte</a>
   <div class="menu-area">
-    <button class="menu-toggle" type="button" aria-label="メニューを開く" aria-expanded="false"><span></span><span></span><span></span></button>
+    <div class="lang-toggle" data-lang-toggle>
+      <button type="button" data-lang-option="ja">JP</button>
+      <button type="button" data-lang-option="en">EN</button>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="メニューを開く" data-i18n-aria="nav.menuOpen" aria-expanded="false"><span></span><span></span><span></span></button>
     <nav class="menu-panel" aria-label="サイトメニュー">
-      <a href="/about" data-detail="Asiantteの世界観と、ブランドが大切にする美しさ">About</a><a href="/collection" data-detail="2026年秋の二つのコレクションと全20製品">Collection</a><a href="/founding-access" data-detail="先行情報と予約開始のお知らせ">Founding Access</a><a href="/contact" data-detail="Asiantteへのお問い合わせ">Contact</a>
-      <a href="/categories/gift" data-detail="大切な人へ贈る、記憶に残るジュエリー">ギフト</a><a href="/categories/rings" data-detail="手元に静かな存在感を添えるリング">リング</a><a href="/categories/earrings" data-detail="光を受け、表情を引き立てるピアス">ピアス</a><a href="/categories/bracelets" data-detail="所作に寄り添い、やわらかく揺れるブレスレット">ブレスレット</a><a href="/categories/necklaces" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a><a href="/categories" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a><a href="/new-arrivals" data-detail="最新のコレクションと新着アイテム">新作</a><a href="/fine-jewelry" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
+      <a href="/about" data-i18n="nav.about" data-i18n-detail="nav.about.detail" data-detail="Asiantteの世界観と、ブランドが大切にする美しさ">About</a><a href="/collection" data-i18n="nav.collection" data-i18n-detail="nav.collection.detail" data-detail="2026年秋の二つのコレクションと全20製品">Collection</a><a href="/founding-access" data-i18n="nav.founding" data-i18n-detail="nav.founding.detail" data-detail="先行情報と予約開始のお知らせ">Founding Access</a><a href="/contact" data-i18n="nav.contact" data-i18n-detail="nav.contact.detail" data-detail="Asiantteへのお問い合わせ">Contact</a>
+      <a href="/categories/gift" data-i18n="nav.gift" data-i18n-detail="nav.gift.detail" data-detail="大切な人へ贈る、記憶に残るジュエリー">ギフト</a><a href="/categories/rings" data-i18n="nav.rings" data-i18n-detail="nav.rings.detail" data-detail="手元に静かな存在感を添えるリング">リング</a><a href="/categories/earrings" data-i18n="nav.earrings" data-i18n-detail="nav.earrings.detail" data-detail="光を受け、表情を引き立てるピアス">ピアス</a><a href="/categories/bracelets" data-i18n="nav.bracelets" data-i18n-detail="nav.bracelets.detail" data-detail="所作に寄り添い、やわらかく揺れるブレスレット">ブレスレット</a><a href="/categories/necklaces" data-i18n="nav.necklaces" data-i18n-detail="nav.necklaces.detail" data-detail="首元に美しい余白をつくるネックレス">ネックレス</a><a href="/categories" data-i18n="nav.categories" data-i18n-detail="nav.categories.detail" data-detail="ジュエリーをカテゴリーから探す">カテゴリー</a><a href="/new-arrivals" data-i18n="nav.new" data-i18n-detail="nav.new.detail" data-detail="最新のコレクションと新着アイテム">新作</a><a href="/fine-jewelry" data-i18n="nav.fineJewelry" data-i18n-detail="nav.fineJewelry.detail" data-detail="職人の技術と素材にこだわったジュエリー">ファインジュエリー</a>
       <div class="menu-detail" aria-live="polite"></div>
     </nav>
   </div>
 </header>
 <script>
+  import { initLangSwitcher } from '../i18n/lang';
+
+  initLangSwitcher();
+
   const menuToggle = document.querySelector('.menu-toggle');
   const menuArea = document.querySelector('.menu-area');
   const menuDetail = document.querySelector<HTMLElement>('.menu-detail');
@@ -70,10 +78,39 @@
 
   .menu-area {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .6rem;
     flex: 0 0 auto;
     min-width: 2rem;
     margin-top: 2.7rem;
     margin-left: auto;
+  }
+
+  .lang-toggle {
+    display: flex;
+    gap: .3rem;
+  }
+
+  .lang-toggle button {
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    font: 600 .6rem Manrope, "Noto Sans JP", sans-serif;
+    letter-spacing: .05em;
+    padding: .15rem .55rem;
+    opacity: .55;
+    cursor: pointer;
+    transition: opacity 150ms ease, background 150ms ease, color 150ms ease;
+  }
+
+  .lang-toggle button.is-active {
+    background: var(--accent, #B08D57);
+    border-color: var(--accent, #B08D57);
+    color: #fff;
+    opacity: 1;
   }
 
   .menu-panel {
