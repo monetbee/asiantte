@@ -1,0 +1,7 @@
+name = "asiantte"
+compatibility_date = "2024-09-23"
+
+# SESSIONバインディングの設定（Cloudflare KVを使用する場合）
+[[kv_namespaces]]
+binding = "SESSION"
+id = "YOUR_KV_NAMESPACE_ID" # Cloudflare管理画面で作成したKVのIDを入れる
