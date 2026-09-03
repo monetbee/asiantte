@@ -25,6 +25,7 @@
 	"engines": {
 		"node": ">=22"
 	},
+	"packageManager": "npm@11.5.1",
 	"private": true,
 	"scripts": {
 		"astro": "astro",
@@ -32,7 +33,7 @@
 		"cf-typegen": "wrangler types",
 		"check": "astro build && tsc && wrangler deploy --dry-run",
 		"deploy": "wrangler deploy",
-		"dev": "node scripts/clear-astro-dev-port.mjs && astro dev",
+		"dev": "node scripts/clear-astro-dev-port.mjs && node scripts/dev-with-browser.mjs",
 		"preview": "astro build && wrangler dev"
 	},
 	"type": "module"
