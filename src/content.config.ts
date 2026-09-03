@@ -1,3 +1,5 @@
+/// <reference types="astro/client" />
+
 import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
